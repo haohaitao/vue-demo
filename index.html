@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta title="这是一个好看的登录页面" />
+<link href="./style.css" rel="stylesheet">
+</head>
+<body id="login" class="unloaded">
+<div class="wrapper">
+  <header>
+   <nav role="navigation" class="navbar">
+    <div class="container">
+	  <div class="navbar-left" >
+      <a href="/" class="navbar-brand">蒲公英</a>
+      </div>
+	  <div class="navbar-right">
+      <a href="/" class="navbar-brand">登录</a>
+	  <a href="/" class="navbar-brand">注册</a>
+      </div>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <div class="login">
+   <form action="/users/session" method="post" class="container offset1 loginform">
+    <div id="owl-login" class="">
+     <div class="eyes"></div>
+     <div class="arm-up-right"></div>
+     <div class="arm-up-left"></div>
+     <div class="arm-down-left"></div>
+     <div class="arm-down-right"></div>
+    </div>
+    <div class="pad">
+     <input type="hidden" name="_csrf" value="rd491cwp-2PSfWJ4xpJeMOl9bGyWvmOCjVCQ" />
+     <div class="control-group">
+      <div class="controls">
+       <label for="email" class="control-label fa fa-envelope"></label>
+       <input id="email" type="email" name="email" placeholder="请输入邮箱" tabindex="1" autofocus="autofocus" required="" class="form-control input-medium" />
+      </div>
+     </div>
+     <div class="control-group">
+      <div class="controls">
+       <label for="password" class="control-label fa fa-asterisk"></label>
+       <input id="password" type="password" name="password" placeholder="请输入密码" tabindex="2" required="" class="form-control input-medium" />
+      </div>
+     </div>
+    </div>
+    <div class="form-actions">
+     <a href="/forgot/" tabindex="5" class="btn pull-left btn-link text-muted">忘记密码？</a>
+     <a href="/signup" tabindex="6" class="btn btn-link text-muted">注册</a>
+     <button type="submit" tabindex="4" class="btn btn-primary">登录</button>
+    </div>
+   </form>
+  </div>
+  </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+    $(function() {
+
+        $('.pad #password').focus(function() {
+            $('#owl-login').addClass('password');
+        }).blur(function() {
+            $('#owl-login').removeClass('password');
+        });
+    });
+    </script>
+</body>
+</html>
