@@ -17,7 +17,7 @@
  </div>
   <div class="login">
    <form action="/users/session" method="post" class="container offset1 loginform">
-    <div id="owl-login" class="">
+    <div id="owl-login" :class="{password : this.click_password}">
      <div class="eyes"></div>
      <div class="arm-up-right"></div>
      <div class="arm-up-left"></div>
@@ -27,16 +27,24 @@
     <div class="pad">
      <div class="control-group">
       <div class="controls">
-          
-       <label for="email" class="control-label fa fa-envelope"><i class="el-icon-user-solid"></i></label>
-       <input id="email" type="email" name="email" placeholder="请输入邮箱" tabindex="1" autofocus="autofocus" required="" class="form-control input-medium" />
+        <el-input
+            placeholder="请输入邮箱"
+            prefix-icon="el-icon-user-solid"
+            v-model="username">
+        </el-input>
       </div>
      </div>
      <div class="control-group">
       <div class="controls">
-       <label for="password" class="control-label fa fa-asterisk"><i class="el-icon-warning"></i></label>
-       <input id="password" type="password" name="password" placeholder="请输入密码" tabindex="2" required="" class="form-control input-medium" />
-      </div>
+        <el-input
+            placeholder="请输入密码"
+            prefix-icon="el-icon-warning"
+            show-password
+            @focus="get_focus()"
+            @blur="lose_blur()"
+            v-model="password">
+        </el-input>
+     </div>
      </div>
     </div>
     <div class="form-actions">
@@ -54,8 +62,21 @@ export default {
   name: 'Login',
   data () {
     return {
+        username:'', //邮箱
+        password:'', //密码
+        click_password:false, //默认为false，聚焦后为true
     }
-  }
+  },
+    methods:{
+        //获得焦点
+        get_focus(){
+            this.click_password = true;
+        },
+        //失去焦点
+        lose_blur(){
+            this.click_password = false;
+        }
+    }
 }
 </script>
 
