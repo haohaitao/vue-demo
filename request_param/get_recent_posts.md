@@ -1,7 +1,7 @@
 ### get_recent_posts 
 
 ## 描述
-获取文章接口
+获取最新文章接口
 
 ## 请求
 方式：http get

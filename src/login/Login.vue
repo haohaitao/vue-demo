@@ -48,8 +48,8 @@
      </div>
     </div>
     <div class="form-actions">
-     <a href="/forgot/" tabindex="5" class="btn pull-left btn-link text-muted">忘记密码？</a>
-     <a href="/signup" tabindex="6" class="btn btn-link text-muted">注册</a>
+     <a href="#" tabindex="5" class="btn pull-left btn-link text-muted">忘记密码？</a>
+     <a href="#" tabindex="6" class="btn btn-link text-muted">注册</a>
      <button type="submit" tabindex="4" class="btn btn-primary">登录</button>
     </div>
    </form>
