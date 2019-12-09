@@ -16,7 +16,7 @@
   </header>
  </div>
   <div class="login">
-   <form action="/users/session" method="post" class="container offset1 loginform">
+   <form action="/" method="post" class="container offset1 loginform">
     <div id="owl-login" :class="{password : this.click_password}">
      <div class="eyes"></div>
      <div class="arm-up-right"></div>
@@ -157,7 +157,7 @@ header .navbar>.container {
 #login #owl-login, #register #owl-login, #unsubscribe #owl-login, .login #owl-login {
     width: 116px;
     height: 92px;
-    background-image: url(../assets/imgs/login/face.png);
+    background-image: url(../../assets/imgs/login/face.png);
     position: absolute;
     top: -82px;
     left: 50%;
@@ -167,7 +167,7 @@ header .navbar>.container {
 #login #owl-login .eyes, #register #owl-login .eyes, #unsubscribe #owl-login .eyes, .login #owl-login .eyes {
     width: 100%;
     height: 100%;
-    background-image: url(../assets/imgs/login/eyes.png);
+    background-image: url(../../assets/imgs/login/eyes.png);
     opacity: 0;
     -ms-filter: "alpha(opacity=0)";
     filter: alpha(opacity=0);
@@ -181,7 +181,7 @@ header .navbar>.container {
 #login #owl-login .arm-up-right, #register #owl-login .arm-up-right, #unsubscribe #owl-login .arm-up-right, .login #owl-login .arm-up-right {
     width: 51px;
     height: 41px;
-    background-image: url(../assets/imgs/login/arm-up-right.png);
+    background-image: url(../../assets/imgs/login/arm-up-right.png);
     position: absolute;
     bottom: 11px;
     right: 5px;
@@ -210,7 +210,7 @@ header .navbar>.container {
 #login #owl-login .arm-up-left, #register #owl-login .arm-up-left, #unsubscribe #owl-login .arm-up-left, .login #owl-login .arm-up-left {
     width: 52px;
     height: 41px;
-    background-image: url(../assets/imgs/login/arm-up-left.png);
+    background-image: url(../../assets/imgs/login/arm-up-left.png);
     position: absolute;
     bottom: 11px;
     left: -3px;
@@ -239,7 +239,7 @@ header .navbar>.container {
 #login #owl-login .arm-down-left, #register #owl-login .arm-down-left, #unsubscribe #owl-login .arm-down-left, .login #owl-login .arm-down-left {
     width: 43px;
     height: 25px;
-    background-image: url(../assets/imgs/login/arm-down-left.png);
+    background-image: url(../../assets/imgs/login/arm-down-left.png);
     position: absolute;
     bottom: 2px;
     left: -34px;
@@ -253,7 +253,7 @@ header .navbar>.container {
 #login #owl-login .arm-down-right, #register #owl-login .arm-down-right, #unsubscribe #owl-login .arm-down-right, .login #owl-login .arm-down-right {
     width: 43px;
     height: 26px;
-    background-image: url(../assets/imgs/login/arm-down-right.png);
+    background-image: url(../../assets/imgs/login/arm-down-right.png);
     position: absolute;
     bottom: 1px;
     right: -40px;
