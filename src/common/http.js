@@ -79,7 +79,6 @@ export function putJson(uri, data, host) {
 	return crossRequest(host,uri,"put",data);
 }
 
-
 //时间戳转时间 
 export function timestampToTimes(timestamp) {
 	var date = new Date(timestamp * 1000); //时间戳为10位需*1000，时间戳为13位的话不需乘1000

@@ -1,11 +1,6 @@
 <template>
-  <div class="home_wrapper">
-    {{msg}}
-    <div v-for="item in listData" :key="item.id">
-        <ul v-for="item in listData" :key="item.id">
-            <li v-html="item.content.rendered"></li>
-        </ul>
-    </div>
+  <div>
+    <Content></Content>
   </div>
 </template>
 
@@ -17,17 +12,12 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: '这里是home页面',
-      listData:[] ,//存接口返回的数据
     }
-  },methods:{
-
   },
-  mounted(){
-      http.get('/wp-json/wp/v2/comments','',rootUrl).then( (res)=> {
-          console.log(res)
-          this.listData = res.data
-      })
+  methods:{},
+  mounted(){},
+  components: {
+    Content: () => import('./content/index')
   }
 }
 </script>
