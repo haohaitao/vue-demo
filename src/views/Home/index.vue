@@ -17,7 +17,7 @@ export default {
   methods:{},
   mounted(){},
   components: {
-    Content: () => import('./content/index')
+    Content: () => import('./PageContent')
   }
 }
 </script>

@@ -18,7 +18,7 @@ import * as http from '@/common/http'
 import * as config from '@/common/config'
 let rootUrl = config.default.apiUrl;
 export default {
-  name: 'content',
+  name: 'PageContent',
   data () {
     return {
       msg: '这里是content页面',
@@ -38,7 +38,7 @@ export default {
       })
     }
   },
-  mounted(){
+  created(){
       let data = {
         per_page:12,
         page:1
