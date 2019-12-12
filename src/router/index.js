@@ -7,21 +7,28 @@ import Home from '@/views/Home'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
+    // {
+    //   path: '/',
+    //   name: 'HelloWorld',
+    //   component: HelloWorld
+    // },
     {
       path: '/login',
       name: 'Login',
       component: Login
     },
     {
-      path: '/home',
+      path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '*',
+      component: () => import('@/components/NotFound'),
+      name: 'NotFound',
+      meta: { title: '404 - 找不到页面' }
     }
   ]
 })

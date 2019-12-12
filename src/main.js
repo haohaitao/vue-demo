@@ -10,6 +10,13 @@ import './assets/font/iconfont.css'
 Vue.use(element)
 Vue.config.productionTip = false
 
+// 加载全局组件
+import components from './components'
+// 注册全局组件
+Object.keys(components).forEach(key => {
+  Vue.component(key, components[key])
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
