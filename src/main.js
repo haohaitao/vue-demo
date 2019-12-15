@@ -17,6 +17,12 @@ Object.keys(components).forEach(key => {
   Vue.component(key, components[key])
 })
 
+// 导航守卫，显示设置的网页title
+router.afterEach((to, from) => {
+  let title = to.meta.title
+  document.title = title
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

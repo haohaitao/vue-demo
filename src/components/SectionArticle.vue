@@ -1,38 +1,29 @@
 <template>
   <section ref="blogSection" class="section-article">
     <article v-for="(val, index) in blogShowList" :key="index">
-      <span v-if="val.isTop && isHome" class="top-icon">
-        <i class="iconfont icon-Up-1" />
-      </span>
       <div class="bg-container">
         <div
           class="bg-img"
           :style="val.id | setLink({background: `url(${val.content_first_image}) 100% 100% / 100% 100%`})"
         ></div>
       </div>
-      <!-- 这里使用命名路由，效果与下面一样，使用过滤器控制骨架屏的链接 -->
-      <router-link :to="val.id | setLink({name: 'blog', params: {id: val.id, title: val.title}})">
         <div class="bg-cover">
-          <p v-html="val.excerpt.rendered"></p>
+          <p v-html="val.excerpt['rendered']"></p>
         </div>
-      </router-link>
       <div class="other-bgcover right-bgcover"></div>
       <div class="other-bgcover"></div>
       <div class="desc">
-        <!-- 这里直接用 id 作为路径，使用过滤器控制骨架屏的链接 -->
-        <router-link :to="val.id | setLink(`/${val.id}`)">
-          <p class="title" :title="val.title.rendered">{{val.title.rendered}}</p>
-        </router-link>
+          <p class="title" :title="val.title['rendered']">{{val.title['rendered']}}</p>
         <div class="desc-bottom">
           <div :class="{'d-detail': true, 'hidden-detail': !val.id}">
             <i class="iconfont">&#xe608;</i>
-            <span style="font-size: 14px;">{{val.date.split('T')[0]}}</span>
+            <span style="font-size: 14px;">{{val.date?val.date.split('T')[0]:''}}</span>
             <i class="iconfont">&#xe637;</i>
             <span style="font-size: 14px;">{{val.pageviews}}</span>
             <i class="iconfont">&#xe607;</i>
             <span style="font-size: 14px;">{{val.total_comments}}</span>
           </div>
-          <router-link :to="val.id | setLink(`/category/${val.id}`)">
+          <router-link to="/">
             <el-tooltip :content="val.category_name || '个人博客'" class="item" effect="dark" placement="top-end">
               <div class="item-icon" :style="{backgroundPosition: `0 ${-(Math.floor((Math.random()*4)+1))*70}px`}"></div>
             </el-tooltip>
@@ -61,9 +52,9 @@ export default {
           description: '',
           id: '',
           image: '',
-          createTime: '2018-08-23',
-          hit: 20,
-          comment: 20,
+          date: '1970-01-01',
+          pageviews: 20,
+          total_comments: 20,
           classifyId: 1
         },
         {
@@ -72,9 +63,9 @@ export default {
           description: '',
           id: '',
           image: '',
-          createTime: '2018-08-23',
-          hit: 20,
-          comment: 20,
+          date: '1970-01-01',
+          pageviews: 20,
+          total_comments: 20,
           classifyId: 2
         },
         {
@@ -83,9 +74,9 @@ export default {
           description: '',
           id: '',
           image: '',
-          createTime: '2018-08-23',
-          hit: 20,
-          comment: 20,
+          date: '1970-01-01',
+          pageviews: 20,
+          total_comments: 20,
           classifyId: 3
         }
       ], //保存拿到的文章数据
@@ -102,14 +93,8 @@ export default {
     }
   },
   computed: {
-    basePath() {
-      console.log(process.env.API_ROOT + '/krryblog/')
-      return process.env.API_ROOT + '/krryblog/'
-    },
-    isHome() {
-      return this.$route.name === 'home' || this.$route.name === 'homePage'
-    }
   },
+  // 监听blogList数组变化
   watch: {
     blogList(newVal, oldVal) {
       console.log(newVal, oldVal)
@@ -119,7 +104,7 @@ export default {
         this.$refs.blogSection.style['display'] = 'none'
         setTimeout(() => {
           this.$refs.blogSection.style['display'] = 'block'
-        }, 0)
+        }, 200)
       }
     }
   },
@@ -149,7 +134,6 @@ section {
     margin: 20px;
     box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.08);
     overflow: hidden;
-
     &:hover {
       box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.15);
       background: #fff;
@@ -229,8 +213,7 @@ section {
       height: 100%;
       padding: 40px 28px;
       box-sizing: border-box;
-      /* cursor: url(../assets/imgs/cursor.cur), pointer !important; */
-      cursor: pointer !important;
+      cursor: url("https://www.haoht123.com/wp-content/uploads/2018/07/2276720810.cur"),pointer !important;
 
       p {
         font-size: 14px;

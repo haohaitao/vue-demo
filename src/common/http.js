@@ -1,40 +1,7 @@
-import router from '@/router'
 import axios from 'axios'
 
-//请求拦截
-// axios.interceptors.request.use(
-// 	config => {
-// 			Indicator.open();
-// 			return config;
-// 	},
-// 	err => {
-// 			return Promise.reject(err);
-// 	});
-// http 响应拦截器
-// axios.interceptors.response.use(
-// 	response => {
-// 		Indicator.close(); 
-// 		if(response.data.cscode == 10002){
-// 				router.push('/login')
-// 				sessionStorage.clear()
-// 				localStorage.removeItem('login')
-// 				MessageBox.alert('您的账号已在别处登录，\n请您重新登录！') 
-// 		}else if(response.data.cscode == 10001){
-// 				router.push('/login')
-// 				sessionStorage.clear()
-// 				localStorage.removeItem('login')
-// 				MessageBox.alert( '您的账号登录已过期，\n请您重新登录！') 
-// 		}
-// 			return response;
-// 	},
-// 	error => {
-// 		alert(JSON.stringify(error))
-// 			return Promise.reject(error)   // 返回接口返回的错误信息
-// 	});
-
-
-export function get(uri, data, host) {
-	let r_url = (host) ? (host+uri) : uri;
+export function get(url, data, host) {
+	let r_url = (host) ? (host+url) : url;
 	// handleUserMac(data);
 	return axios.get(r_url, {
 		params: data

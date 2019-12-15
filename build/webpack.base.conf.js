@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-12-12 23:44:09
+ * @LastEditTime: 2019-12-15 20:12:35
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \vue-blog\build\webpack.base.conf.js
+ */
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -53,7 +61,7 @@ module.exports = {
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        test: /\.(png|jpe?g|gif|svg|cur)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,

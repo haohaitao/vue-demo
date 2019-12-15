@@ -66,6 +66,7 @@ footer {
 
     .footer-flot {
       position: relative;
+      color: #eee;
       top: 50%;
       transform: translateY(-50%);
       display: inline-block;
@@ -75,13 +76,6 @@ footer {
       top: 50%;
       transform: translateY(-50%);
       display: inline-block;
-
-      .github {
-        i {
-          font-size: 18px;
-          margin-top: -5px;
-        }
-      }
     }
   }
 }

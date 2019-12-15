@@ -3,6 +3,7 @@
         <SectionArticle :blogList="blogList"></SectionArticle>
         <div style="clear:both;margin:30px 0;">
             <el-pagination
+            v-if="total > 12"
             background
             layout="prev, pager, next"
             :page-size="12"
@@ -19,6 +20,7 @@ import * as config from '@/common/config'
 let rootUrl = config.default.apiUrl;
 export default {
   name: 'PageContent',
+  inject: ['reload'], //刷新页面
   data () {
     return {
       msg: '这里是content页面',
@@ -27,15 +29,23 @@ export default {
     }
   },
   methods:{
-    //页码改变触发事件
-    handleCurrentChange(page){
+    getList(){
         http.get('/wp-json/wp/v2/posts?per_page=12',{
-          page:page
+          page:this.page
         },rootUrl).then( (res)=> {
-          console.log(res)
           this.blogList = res.data
           this.total = parseInt(res.headers['x-wp-total'])
       })
+    },
+    //页码改变触发事件
+    handleCurrentChange(page){
+      this.page = page;
+      this.getList();
+      if (page === 1) {
+        this.$router.push({name: 'Home'})
+      } else {
+        this.$router.push({ name: 'homePage', params: { pageIndex: page } })
+      }
     }
   },
   created(){
@@ -43,7 +53,7 @@ export default {
         per_page:12,
         page:1
       }
-      http.get('/wp-json/wp/v2/posts?per_page=12','',rootUrl).then( (res)=> {
+      http.get('/wp-json/wp/v2/posts?per_page=12',data,rootUrl).then( (res)=> {
           this.blogList = res.data
           this.total = parseInt(res.headers['x-wp-total'])
       })
