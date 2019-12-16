@@ -1,3 +1,3 @@
 export default {
-	apiUrl: "https://www.haoht123.com"
+	apiUrl: "https://www.hao123.com"
 }
