@@ -1,6 +1,6 @@
 <template>
   <section ref="blogSection" class="section-article">
-    <article v-for="(val, index) in blogShowList" :key="index" @click="test(val)">
+    <article v-for="(val, index) in blogShowList" :key="index" @click="this.test(item)">
       <div class="bg-container">
         <div
           class="bg-img"

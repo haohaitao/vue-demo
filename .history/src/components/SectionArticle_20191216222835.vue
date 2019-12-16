@@ -1,6 +1,6 @@
 <template>
   <section ref="blogSection" class="section-article">
-    <article v-for="(val, index) in blogShowList" :key="index" @click="test(val)">
+    <article v-for="(val, index) in blogShowList" :key="index">
       <div class="bg-container">
         <div
           class="bg-img"
@@ -88,6 +88,7 @@ export default {
     }
   },
   created() {
+    console.log(this.blogList.length)
     if (this.blogList.length > 0) {
       this.blogShowList = this.blogList
     }
@@ -111,9 +112,6 @@ export default {
   mounted(){
   },
   methods: {
-    test(item){
-      console.log(item)
-    }
   },
   components: {}
 }

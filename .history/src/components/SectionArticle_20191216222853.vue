@@ -1,6 +1,6 @@
 <template>
   <section ref="blogSection" class="section-article">
-    <article v-for="(val, index) in blogShowList" :key="index" @click="test(val)">
+    <article v-for="(val, index) in blogShowList" :key="index">
       <div class="bg-container">
         <div
           class="bg-img"
@@ -96,24 +96,21 @@ export default {
   },
   // 监听blogList数组变化
   watch: {
-    blogList(newVal, oldVal) {
-      console.log(newVal, oldVal)
-      this.blogShowList = newVal
-      if (oldVal.length !== 0) {
-        // 共用组件，每次数据变化产生过渡效果
-        this.$refs.blogSection.style['display'] = 'none'
-        setTimeout(() => {
-          this.$refs.blogSection.style['display'] = 'block'
-        }, 200)
-      }
-    }
+    // blogList(newVal, oldVal) {
+    //   console.log(newVal, oldVal)
+    //   this.blogShowList = newVal
+    //   if (oldVal.length !== 0) {
+    //     // 共用组件，每次数据变化产生过渡效果
+    //     this.$refs.blogSection.style['display'] = 'none'
+    //     setTimeout(() => {
+    //       this.$refs.blogSection.style['display'] = 'block'
+    //     }, 200)
+    //   }
+    // }
   },
   mounted(){
   },
   methods: {
-    test(item){
-      console.log(item)
-    }
   },
   components: {}
 }

@@ -20,6 +20,7 @@ import * as config from '@/common/config'
 let rootUrl = config.default.apiUrl;
 export default {
   name: 'PageContent',
+  inject: ['reload'], //刷新页面
   data () {
     return {
       msg: '这里是content页面',
