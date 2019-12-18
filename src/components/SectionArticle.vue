@@ -113,10 +113,6 @@ export default {
   mounted(){
   },
   methods: {
-    test(item){
-      console.log(item)
-      this.$router.push('/blog')
-    }
   },
   components: {}
 }

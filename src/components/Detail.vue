@@ -4,9 +4,9 @@
       <h1>{{blog.title}}</h1>
       <div class="header-info">
         <i type="md-pricetags" />
-        <router-link :to="`/category/${blog.classifyId}`">{{blog.classify}}</router-link>
+        <router-link :to="`/category/${blog.category_name}`">{{blog.category_name}}</router-link>
         <i type="md-calendar" />
-        {{blog.createTime | subTime(0)}}
+        {{blog.date | subTime(0)}}
         <i type="md-eye" />
         {{blog.hit}}
         <i type="md-chatboxes" />
@@ -56,136 +56,142 @@ export default {
     return {
       isloaded: false,
       submitBtn: null,
+      listData:[]
     };
   },
   computed: {
     blogLabel () {
-      return this.blog['label'] ? this.blog['label'].split(',') : [];
+      // return this.blog['label'] ? this.blog['label'].split(',') : [];
     },
     hasShowTags () {
-      return this.blogLabel.length > 0;
+      // return this.blogLabel.length > 0;
     },
     hasShowHeader () {
       // 当标题是 关于我 或 友情链接，不显示文章头部信息
-      return this.blog.title !== '关于我' && this.blog.title !== '友情链接';
+      // return this.blog.title !== '关于我' && this.blog.title !== '友情链接';
     },
     isLogined () {
-      return sessionStorage.getItem('username') !== null;
+      // return sessionStorage.getItem('username') !== null;
     },
+  },
+  created(){
+    this.listData = this.blog
+    console.log(this.listData)
   },
   mounted () {
+    console.log(this.blog)
     // 加载目录和评论插件
-    if (JSON.stringify(this.blog) !== '{}' && this.blog !== null) {
-      this.getCatalogZoomsComment();
-      this.getComment();
-    }
+    // if (JSON.stringify(this.blog) !== '{}' && this.blog !== null) {
+      // this.getCatalogZoomsComment();
+      // this.getComment();
+    // }
     // 这里使用深度监听 blog 对象的属性变化
-    this.$watch('blog', this.getCatalogZoomsComment, {
-      deep: true,
-    });
+    // this.$watch('blog', this.getCatalogZoomsComment, {
+    //   deep: true,
+    // });
   },
   methods: {
-    getCatalogZoomsComment () {
-      // 设置文章目录
-      Catalog({
-        contentEl: 'blog',
-        catalogEl: 'directory',
-        selector: ['h1', 'h2', 'h3'],
-      });
-      let wrapper = document.getElementsByClassName('cl-wrapper')[0];
-      // 没有目录，就隐藏
-      if (wrapper.innerHTML === '') {
-        wrapper.style.display = 'none';
-      }
-      // 设置图片点击放大
-      // 事件委托，处理全部 img 标签的点击事件
-      let blog = document.getElementById('blog');
-      let zooms = document.getElementById('zooms');
-      let target = '';
-      blog.addEventListener('click', ev => {
-        let eve = ev || window.event;
-        target = eve.target || eve.srcElement;
-        if (target.nodeName.toLowerCase() === 'img' && target.className !== 'zoom-big-img') {
-          zooms.style.visibility = 'visible';
-          zooms.style.opacity = '1';
-          target.className = 'zoom-big-img';
-        } else if (target.className === 'zoom-big-img') {
-          zooms.style.visibility = 'hidden';
-          zooms.style.opacity = '0';
-          target.className = '';
-        }
-      });
-      zooms.addEventListener('click', ev => {
-        zooms.style.visibility = 'hidden';
-        zooms.style.opacity = '0';
-        target.className = '';
-      });
-      // 加载评论系统
-      this.getComment();
-      this.isloaded = true;
-    },
-    getComment () {
-      Valine({
-        el: '#vcomments',
-        appId: 'AXcd7u8mPqn0JWnsXku8MgdU-gzGzoHsz',
-        appKey: 'xDI01iWSsPVlKzITBp5ODinq',
-        verify: true,
-        path: window.location.pathname,
-        avatar: 'mp',
-        placeholder: '留下你的足迹... （支持 Markdown）',
-      });
-      // 获取按钮的容器
-      let buttonContainer = document.getElementsByClassName('text-right')[0];
-      // 获取提交按钮并移除提交按钮
-      this.submitBtn = document.getElementsByClassName('vsubmit')[0];
-      this.submitBtn.style['display'] = 'none';
-      buttonContainer.removeChild(this.submitBtn);
+    // getCatalogZoomsComment () {
+    //   // 设置文章目录
+    //   Catalog({
+    //     contentEl: 'blog',
+    //     catalogEl: 'directory',
+    //     selector: ['h1', 'h2', 'h3'],
+    //   });
+    //   let wrapper = document.getElementsByClassName('cl-wrapper')[0];
+    //   // 没有目录，就隐藏
+    //   if (wrapper.innerHTML === '') {
+    //     wrapper.style.display = 'none';
+    //   }
+    //   // 设置图片点击放大
+    //   // 事件委托，处理全部 img 标签的点击事件
+    //   let blog = document.getElementById('blog');
+    //   let zooms = document.getElementById('zooms');
+    //   let target = '';
+    //   blog.addEventListener('click', ev => {
+    //     let eve = ev || window.event;
+    //     target = eve.target || eve.srcElement;
+    //     if (target.nodeName.toLowerCase() === 'img' && target.className !== 'zoom-big-img') {
+    //       zooms.style.visibility = 'visible';
+    //       zooms.style.opacity = '1';
+    //       target.className = 'zoom-big-img';
+    //     } else if (target.className === 'zoom-big-img') {
+    //       zooms.style.visibility = 'hidden';
+    //       zooms.style.opacity = '0';
+    //       target.className = '';
+    //     }
+    //   });
+    //   zooms.addEventListener('click', ev => {
+    //     zooms.style.visibility = 'hidden';
+    //     zooms.style.opacity = '0';
+    //     target.className = '';
+    //   });
+    //   // 加载评论系统
+    //   // this.getComment();
+    //   this.isloaded = true;
+    // },
+    // getComment () {
+    //   Valine({
+    //     el: '#vcomments',
+    //     appId: 'AXcd7u8mPqn0JWnsXku8MgdU-gzGzoHsz',
+    //     appKey: 'xDI01iWSsPVlKzITBp5ODinq',
+    //     verify: true,
+    //     path: window.location.pathname,
+    //     avatar: 'mp',
+    //     placeholder: '留下你的足迹... （支持 Markdown）',
+    //   });
+    //   // 获取按钮的容器
+    //   let buttonContainer = document.getElementsByClassName('text-right')[0];
+    //   // 获取提交按钮并移除提交按钮
+    //   this.submitBtn = document.getElementsByClassName('vsubmit')[0];
+    //   this.submitBtn.style['display'] = 'none';
+    //   buttonContainer.removeChild(this.submitBtn);
 
-      // 获取输入的昵称、邮箱、评论内容
-      let nick = document.getElementsByName('nick')[0];
-      let mail = document.getElementsByName('mail')[0];
-      let textDiv = document.getElementById('veditor');
+    //   // 获取输入的昵称、邮箱、评论内容
+    //   let nick = document.getElementsByName('nick')[0];
+    //   let mail = document.getElementsByName('mail')[0];
+    //   let textDiv = document.getElementById('veditor');
 
-      // 邮箱正则
-      const emailReg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,5}$/;
+    //   // 邮箱正则
+    //   const emailReg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,5}$/;
 
-      // 创建新的按钮替换
-      let btn = document.createElement('button');
-      btn.className = 'new-btn';
-      btn.innerText = '提交评论';
-      buttonContainer.appendChild(btn);
-      // 提交评论的事件
-      btn.addEventListener('click', (e) => {
-        let nickText = nick.value;
-        let mailText = mail.value;
-        let textDesc = textDiv.value;
-        let isok = emailReg.test(mailText);
-        if (nickText.trim() === '') {
-          this.$Message.warning('先输入昵称哦~~');
-        } else if (mailText.trim() === '') {
-          this.$Message.warning('先输入邮箱哦~~');
-        } else if (!isok) {
-          this.$Message.warning('邮箱格式不正确哦~~');
-        } else if (textDesc.trim() === '') {
-          this.$Message.warning('先输入评论哦~~');
-        } else {
-          // 触发提交按钮
-          buttonContainer.appendChild(this.submitBtn);
-          this.submitBtn.click();
-          // 获取点击数并提交
-          let commentCount = document.getElementsByClassName('vcard').length;
-          let reqData = {
-            id: this.blog['id'],
-            comment: ++commentCount,
-          };
-          Service.updateCommonBlog(reqData);
-          // 设置当前评论量
-          this.$refs.commentSpan.innerText = commentCount;
-          // 移除评论按钮
-          buttonContainer.removeChild(this.submitBtn);
-        }
-      });
-    },
+    //   // 创建新的按钮替换
+    //   let btn = document.createElement('button');
+    //   btn.className = 'new-btn';
+    //   btn.innerText = '提交评论';
+    //   buttonContainer.appendChild(btn);
+    //   // 提交评论的事件
+    //   btn.addEventListener('click', (e) => {
+    //     let nickText = nick.value;
+    //     let mailText = mail.value;
+    //     let textDesc = textDiv.value;
+    //     let isok = emailReg.test(mailText);
+    //     if (nickText.trim() === '') {
+    //       this.$Message.warning('先输入昵称哦~~');
+    //     } else if (mailText.trim() === '') {
+    //       this.$Message.warning('先输入邮箱哦~~');
+    //     } else if (!isok) {
+    //       this.$Message.warning('邮箱格式不正确哦~~');
+    //     } else if (textDesc.trim() === '') {
+    //       this.$Message.warning('先输入评论哦~~');
+    //     } else {
+    //       // 触发提交按钮
+    //       buttonContainer.appendChild(this.submitBtn);
+    //       this.submitBtn.click();
+    //       // 获取点击数并提交
+    //       let commentCount = document.getElementsByClassName('vcard').length;
+    //       let reqData = {
+    //         id: this.blog['id'],
+    //         comment: ++commentCount,
+    //       };
+    //       Service.updateCommonBlog(reqData);
+    //       // 设置当前评论量
+    //       this.$refs.commentSpan.innerText = commentCount;
+    //       // 移除评论按钮
+    //       buttonContainer.removeChild(this.submitBtn);
+    //     }
+    //   });
+    // },
   },
   components: {
   },

@@ -1,8 +1,8 @@
 <template>
   <main v-if="!isNoBlog">
-    <Header></Header>
+    <!-- <Header></Header> -->
     <Detail :blog="blog"></Detail>
-    <Footer></Footer>
+    <!-- <Footer></Footer> -->
   </main>
   <NotFound v-else></NotFound>
 </template>
@@ -31,13 +31,13 @@ export default {
     this.getBlogDetail();
   },
   methods: {
-    getBlogDetail() {
+    async getBlogDetail() {
       let id = this.$route.params['id'];
       console.log(id)
-      http.get('/api/get_post',{
-        id:id
-      },rootUrl).then( (res)=>{
+      http.get('/wp-json/wp/v2/posts/' + id,'',rootUrl).then( (res)=>{
         console.log(res)
+        this.blog = res.data
+        console.log(this.blog,typeof this.blog)
       })
       // let res = await Service.getBlogDetail(id);
       // this.status = res.status;
@@ -50,7 +50,8 @@ export default {
   },
   watch: {
     $route (to, from) {
-      this.getBlogDetail();
+      console.log(to,from)
+      // this.getBlogDetail();
     },
   },
   components: {

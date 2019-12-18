@@ -52,7 +52,7 @@ export default {
         per_page:12,
         page:1
       }
-      http.get('/wp-json/wp/v2/posts?per_page=12',data,rootUrl).then( (res)=> {
+      http.get('/wp-json/wp/v2/posts',data,rootUrl).then( (res)=> {
           this.blogList = res.data
           this.total = parseInt(res.headers['x-wp-total'])
       })
