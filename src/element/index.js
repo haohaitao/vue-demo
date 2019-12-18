@@ -1,5 +1,5 @@
 // 导入自己需要的组件
-import { Select, Option, OptionGroup, Input,Button, Tree, Dialog, Row, Col ,Tooltip,Pagination,Backtop,Dropdown, DropdownMenu,DropdownItem,} from 'element-ui'
+import { Select, Option, OptionGroup, Input,Button, Tree, Dialog, Row, Col ,Tooltip,Pagination,Backtop,Dropdown, DropdownMenu,DropdownItem,Tag} from 'element-ui'
 const element = {
   install: function (Vue) {
     Vue.use(Select)
@@ -17,6 +17,7 @@ const element = {
     Vue.use(Dropdown)
     Vue.use(DropdownMenu)
     Vue.use(DropdownItem)
+    Vue.use(Tag)
   }
 }
 export default element

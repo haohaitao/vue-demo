@@ -13,3 +13,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 src/common/config.js
+*.history

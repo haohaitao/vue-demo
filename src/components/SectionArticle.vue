@@ -1,13 +1,13 @@
 <template>
   <section ref="blogSection" class="section-article">
-    <article v-for="(val, index) in blogShowList" :key="index" @click="test(val)">
+    <article v-for="(val, index) in blogShowList" :key="index">
       <div class="bg-container">
         <div
           class="bg-img"
           :style="val.id | setLink({background: `url(${val.content_first_image}) 100% 100% / 100% 100%`})"
         ></div>
       </div>
-      <router-link :to="val.id | setLink({name: 'blog', params: {id: val.id, title: val.title}})">
+      <router-link :to="val.id | setLink({name: 'blog', params: {id: val.id}})">
         <div class="bg-cover">
           <p v-html="val.excerpt['rendered']"></p>
         </div>
