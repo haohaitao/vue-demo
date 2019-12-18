@@ -7,9 +7,11 @@
           :style="val.id | setLink({background: `url(${val.content_first_image}) 100% 100% / 100% 100%`})"
         ></div>
       </div>
+      <router-link :to="val.id | setLink({name: 'blog', params: {id: val.id, title: val.title}})">
         <div class="bg-cover">
           <p v-html="val.excerpt['rendered']"></p>
         </div>
+      </router-link>
       <div class="other-bgcover right-bgcover"></div>
       <div class="other-bgcover"></div>
       <div class="desc">
@@ -113,6 +115,7 @@ export default {
   methods: {
     test(item){
       console.log(item)
+      this.$router.push('/blog')
     }
   },
   components: {}
