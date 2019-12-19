@@ -36,6 +36,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+img{
+  max-width: 700px;
+}
 a {
     cursor: url("./assets/pic/cursor.cur"),pointer !important;
     color:#666;
