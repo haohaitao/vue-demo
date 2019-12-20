@@ -14,7 +14,9 @@
       </div>
       <div class="header-tag">
         <el-tag v-for="item in tagData" :key="item.id">
+          <router-link :to="{name:'tag',params:{tagId:item.id}}">
           {{item.name}}
+          </router-link>
         </el-tag>
       </div>
       <div class="tag-time">
@@ -116,25 +118,6 @@ article {
     .header-tag {
       width: 85%;
       margin-top: 14px;
-      a {
-        color: #fff;
-        border: 1px solid #f16d71;
-        border-radius: 15px;
-        background: #f16d71;
-        display: inline-block;
-        margin-right: 10px;
-        padding: 0 15px;
-        height: 25px;
-        line-height: 25px;
-        transition: .4s;
-
-        &:hover {
-          color: #5f5f5f !important;
-          border: 1px solid #f7f7f7;
-          outline-style: none;
-          background: #f7f7f7;
-        }
-      }
       span {
         margin-right:12px;
       }

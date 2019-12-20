@@ -1,4 +1,5 @@
 <template>
+  <div class="wrapper">
   <section ref="blogSection" class="section-article">
     <article v-for="(val, index) in blogShowList" :key="index">
       <div class="bg-container">
@@ -35,90 +36,38 @@
     </article>
     <div class="clear"></div>
   </section>
+  </div>
 </template>
 
 <script>
+import * as http from '@/common/http'
+import * as config from '@/common/config'
+let rootUrl = config.default.apiUrl;
 export default {
-  props: {
-    blogList: {
-      type: Array
-    }
-  },
-  data() {
+  name: 'tag',
+  data () {
     return {
-      random_number:null, //生成随机数来裁剪图片
-      blogShowList: [
-                {
-          classify: '',
-          title: '',
-          description: '',
-          id: '',
-          image: '',
-          date: '1970-01-01',
-          pageviews: 20,
-          total_comments: 20,
-          classifyId: 1
-        },
-        {
-          classify: '',
-          title: '',
-          description: '',
-          id: '',
-          image: '',
-          date: '1970-01-01',
-          pageviews: 20,
-          total_comments: 20,
-          classifyId: 2
-        },
-        {
-          classify: '',
-          title: '',
-          description: '',
-          id: '',
-          image: '',
-          date: '1970-01-01',
-          pageviews: 20,
-          total_comments: 20,
-          classifyId: 3
-        }
-      ], //保存拿到的文章数据
-    }
-  },
-  filters: {
-    setLink(id, link) {
-      return id ? link : ''
-    }
-  },
-  created() {
-    if (this.blogList.length > 0) {
-      this.blogShowList = this.blogList
-    }
-  },
-  computed: {
-  },
-  // 监听blogList数组变化
-  watch: {
-    blogList(newVal, oldVal) {
-      console.log(newVal, oldVal)
-      this.blogShowList = newVal
-      if (oldVal.length !== 0) {
-        // 共用组件，每次数据变化产生过渡效果
-        this.$refs.blogSection.style['display'] = 'none'
-        setTimeout(() => {
-          this.$refs.blogSection.style['display'] = 'block'
-        }, 200)
-      }
     }
   },
   mounted(){
-  },
-  methods: {
-  },
-  components: {}
+    let id = this.$route.params['tagId'];
+    http.postJson('/api/get_tag_posts',{
+      id:id
+    },rootUrl).then( (res=> {
+      console.log(res)
+    }))
+  }
 }
 </script>
 
-<style lang='scss' scoped>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+.wrapper{
+  padding-top:100px;
+  height: 150px;
+  background: url(../../assets/imgs/category.jpg) no-repeat;
+  background-size: cover;
+}
 section {
   animation: fadeIn 0.6s linear;
   max-width: 960px;
@@ -166,7 +115,7 @@ section {
       text-align: center;
       line-height: 44px;
       color: #fff;
-      background: url('../assets/imgs/tag.png');
+      background: url('../../assets/imgs/tag.png');
       background-size: cover;
 
       i {
@@ -297,7 +246,7 @@ section {
         }
 
         .item-icon {
-          background: url(../assets/imgs/bg-ico.png) no-repeat;
+          background: url(../../assets/imgs/bg-ico.png) no-repeat;
           height: 37px;
           width: 36px;
           float: right;
