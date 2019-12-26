@@ -1,5 +1,8 @@
 <template>
+<div>
   <div class="wrapper">
+    <p class="tag_title">与『{{title_content}}』相关的文章</p>
+    </div>
   <section ref="blogSection" class="section-article">
     <article v-for="(val, index) in blogShowList" :key="index">
       <div class="bg-container">
@@ -36,7 +39,7 @@
     </article>
     <div class="clear"></div>
   </section>
-  </div>
+</div>
 </template>
 
 <script>
@@ -47,16 +50,25 @@ export default {
   name: 'tag',
   data () {
     return {
+      blogShowList:[],
+      title_content:'', //上个页面点击的标签
     }
   },
   mounted(){
     let id = this.$route.params['tagId'];
-    http.postJson('/api/get_tag_posts',{
-      id:id
-    },rootUrl).then( (res=> {
-      console.log(res)
+    http.get('/wp-json/wp/v2/posts' + '?tags=' + id,'',rootUrl).then( (res=> {
+      this.blogShowList = res.data
     }))
-  }
+
+    http.get('/wp-json/wp/v2/tags/' + id,'',rootUrl).then( (res)=> {
+      this.title_content= res.data.name
+    })
+  },
+  filters: {
+    setLink(id, link) {
+      return id ? link : ''
+    }
+  },
 }
 </script>
 
@@ -67,6 +79,12 @@ export default {
   height: 150px;
   background: url(../../assets/imgs/category.jpg) no-repeat;
   background-size: cover;
+  .tag_title{
+    font-weight: 400;
+    font-size: 35px;
+    color: rgba(255,255,255,0.54);
+    line-height: 145px;
+  }
 }
 section {
   animation: fadeIn 0.6s linear;
@@ -255,6 +273,9 @@ section {
         }
       }
     }
+  }
+  .clear {
+    clear: both;
   }
 }
 </style>

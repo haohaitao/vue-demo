@@ -46,9 +46,8 @@ export default {
   },
   computed: {
   },
-  created () {
+  mounted(){
     this.getBlogDetail();
-    console.log(this.tagData)
   },
   methods: {
     getBlogDetail() {
