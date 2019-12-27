@@ -38,6 +38,12 @@ export default new Router({
       meta: {title: '文章详情-个人主页'},
     },
     {
+      path: '/about',
+      component: () => import('@/views/About'),
+      name: 'about',
+      meta: {title: '关于-个人主页'},
+    },
+    {
       path: '*',
       component: () => import('@/components/NotFound'),
       name: 'NotFound',
