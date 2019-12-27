@@ -3,11 +3,11 @@
     <div class="container">
       <div class="home left">
         <i class="el-icon-cherry"/>
-        <router-link to="/vue-blog">个人主页</router-link>
+        <router-link to="/">个人主页</router-link>
       </div>
       <div class="nav-right">
         <ul class="nav-far">
-          <router-link to="/vue-blog">
+          <router-link to="/">
             <li>
               <i type="ios-home"/>首页
             </li>
@@ -18,10 +18,10 @@
                     分类<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                    <router-link to='/vue-blog'>
+                    <router-link to='/'>
                         <el-dropdown-item>前端开发</el-dropdown-item>
                     </router-link>
-                    <router-link to='/vue-blog' >
+                    <router-link to='/' >
                         <el-dropdown-item>PHP</el-dropdown-item>
                     </router-link>
                 </el-dropdown-menu>

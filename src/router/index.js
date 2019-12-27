@@ -13,25 +13,26 @@ export default new Router({
       component: Login
     },
     {
-      path: '/vue-blog/',
+      path: '/',
       name: 'Home',
       component: () => import('@/views/Home'),
       meta: { title: '首页-个人主页' }
     },
     {
-      path: '/vue-blog/page/:pageIndex(\\d+)',
+      path: '/page',
       component: () => import('@/views/Home'),
       name: 'homePage',
       meta: { title: '首页-个人主页' }
     },
     {
-      path: '/vue-blog/tag/:tagId(\\d+)',
+      path: '/tag',
+      // path: '/tag/:tagId(\\d+)',
       component: () => import('@/views/Tags'),
       name: 'tag',
       meta: { title: '标签页-个人主页' }
     },
     {
-      path: '/vue-blog/article/:id(\\d+)',
+      path: '/article',
       component: () => import('@/views/Blog'),
       name: 'blog',
       meta: {title: '文章详情-个人主页'},

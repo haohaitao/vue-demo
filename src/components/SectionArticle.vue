@@ -7,11 +7,11 @@
           :style="val.id | setLink({background: `url(${val.content_first_image}) 100% 100% / 100% 100%`})"
         ></div>
       </div>
-      <router-link :to="val.id | setLink({name: 'blog', params: {id: val.id}})">
-        <div class="bg-cover">
+      <!-- <router-link :to="val.id | setLink({name: 'blog', params: {id: val.id}})"> -->
+        <div class="bg-cover" @click="jump(val)">
           <p v-html="val.excerpt['rendered']"></p>
         </div>
-      </router-link>
+      <!-- </router-link> -->
       <div class="other-bgcover right-bgcover"></div>
       <div class="other-bgcover"></div>
       <div class="desc">
@@ -106,13 +106,17 @@ export default {
         this.$refs.blogSection.style['display'] = 'none'
         setTimeout(() => {
           this.$refs.blogSection.style['display'] = 'block'
-        }, 200)
+        }, 0)
       }
     }
   },
   mounted(){
   },
   methods: {
+    jump(val){
+      console.log(val)
+      this.$router.push({path:'article',query:{id:val.id}})
+    }
   },
   components: {}
 }

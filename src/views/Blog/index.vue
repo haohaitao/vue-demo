@@ -13,10 +13,8 @@
         <span>{{blog.total_comments}}</span>
       </div>
       <div class="header-tag">
-        <el-tag v-for="item in tagData" :key="item.id">
-          <router-link :to="{name:'tag',params:{tagId:item.id}}">
+        <el-tag v-for="item in tagData" :key="item.id" @click="jump(item)">
           {{item.name}}
-          </router-link>
         </el-tag>
       </div>
       <div class="tag-time">
@@ -50,8 +48,12 @@ export default {
     this.getBlogDetail();
   },
   methods: {
+    //跳转到标签分类页
+    jump(item){
+      this.$router.push({path:'/tag',query:{tagId:item.id}})
+    },
     getBlogDetail() {
-      let id = this.$route.params['id'];
+      let id = this.$route.query.id;
       console.log(id)
       http.get('/wp-json/wp/v2/posts/' + id,'',rootUrl).then( (res)=>{
         console.log(res)

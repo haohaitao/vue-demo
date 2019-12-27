@@ -40,11 +40,6 @@ export default {
     handleCurrentChange(page){
       this.page = page;
       this.getList();
-      if (page === 1) {
-        this.$router.push({name: 'Home'})
-      } else {
-        this.$router.push({ name: 'homePage', params: { pageIndex: page } })
-      }
     }
   },
   created(){
