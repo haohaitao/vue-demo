@@ -2,6 +2,10 @@
 
 > 一套全新前端页面
 
+### 线上demo
+
+[在线体验](http://vue.haoht123.com/)
+
 ## Build Setup
 
 ``` bash
