@@ -28,7 +28,7 @@
                 </el-dropdown>
           </li>
           <!-- 可使用命名路由 -->
-          <router-link :to="{name: 'link'}">
+          <router-link to="/">
             <li>
               <i type="ios-link" style="font-weight: bold;"/>友链
             </li>

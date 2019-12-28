@@ -22,14 +22,13 @@ export default {
   name: 'PageContent',
   data () {
     return {
-      msg: '这里是content页面',
       blogList:[] ,//存接口返回的数据
       total:null, //返回数据的总条数
     }
   },
   methods:{
-    getList(){
-        http.get('/wp-json/wp/v2/posts?per_page=12',{
+    async getList(){
+        await http.get('/wp-json/wp/v2/posts?per_page=12',{
           page:this.page
         },rootUrl).then( (res)=> {
           this.blogList = res.data
@@ -40,6 +39,11 @@ export default {
     handleCurrentChange(page){
       this.page = page;
       this.getList();
+      if (page === 1) {
+        this.$router.push({name: 'home'})
+      } else {
+        this.$router.push({ name: 'homePage', params: { pageIndex: page } })
+      }
     }
   },
   created(){

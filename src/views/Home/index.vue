@@ -1,21 +1,16 @@
 <template>
-  <div>
+  <div class="animated bounce">
     <Content></Content>
   </div>
 </template>
 
 <script>
-import * as http from '../../common/http'
-import * as config from '../../common/config'
-let rootUrl = config.default.apiUrl;
 export default {
   name: 'Home',
   data () {
     return {
     }
   },
-  methods:{},
-  mounted(){},
   components: {
     Content: () => import('./PageContent')
   }

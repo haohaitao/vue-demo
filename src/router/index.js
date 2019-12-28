@@ -14,12 +14,12 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: () => import('@/views/Home'),
       meta: { title: '首页-个人主页' }
     },
     {
-      path: '/page',
+      path: '/page/:pageIndex',
       component: () => import('@/views/Home'),
       name: 'homePage',
       meta: { title: '首页-个人主页' }
@@ -49,5 +49,13 @@ export default new Router({
       name: 'NotFound',
       meta: { title: '404 - 找不到页面' }
     }
-  ]
+  ],
+  //路由变化回到顶部
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })

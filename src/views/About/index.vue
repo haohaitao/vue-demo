@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper">
+<div class="wrapper animated bounceInDown">
     <div v-html="content" class="content">
     </div>
 </div>
@@ -22,12 +22,15 @@ export default {
       this.getContent()
   },
   methods: {
+      result(){
+          this.$message.error('数据获取失败');
+      },
       getContent(){
-          http.get('//wp-json/wp/v2/pages/88','',rootUrl).then( (res)=> {
+          http.get('/wp-json/wp/v2/pages/88','',rootUrl).then( (res)=> {
               if(res.status === 200){
                   this.content = res.data.content.rendered
               }else{
-                this.$message.error('获取数据失败!');
+                  this.result();
               }
           })
       }

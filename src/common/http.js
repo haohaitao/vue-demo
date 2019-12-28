@@ -2,7 +2,6 @@ import axios from 'axios'
 
 export function get(url, data, host) {
 	let r_url = (host) ? (host+url) : url;
-	// handleUserMac(data);
 	return axios.get(r_url, {
 		params: data
 	});
@@ -27,23 +26,8 @@ function crossRequest(host,uri,method,data){
 	});
 }
 
-//拿地址栏参数，缺省为空
-export function getUrlKeyT(name) {
-	return (
-	  decodeURIComponent(
-		(new RegExp("[?|&]" + name + "=" + "([^&;]+?)(&|#|;|$)").exec(
-		  location.href
-		) || [, ""])[1].replace(/\+/g, "%20")
-	  ) || ""
-	);
-  }
-
 export function postJson(uri, data, host) {
 	return crossRequest(host,uri,"post",data);
-}
-
-export function putJson(uri, data, host) {
-	return crossRequest(host,uri,"put",data);
 }
 
 //时间戳转时间 

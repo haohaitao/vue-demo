@@ -1,5 +1,5 @@
 <template>
-  <section ref="blogSection" class="section-article">
+  <section>
     <article v-for="(val, index) in blogShowList" :key="index">
       <div class="bg-container">
         <div
@@ -7,11 +7,9 @@
           :style="val.id | setLink({background: `url(${val.content_first_image}) 100% 100% / 100% 100%`})"
         ></div>
       </div>
-      <!-- <router-link :to="val.id | setLink({name: 'blog', params: {id: val.id}})"> -->
         <div class="bg-cover" @click="jump(val)">
           <p v-html="val.excerpt['rendered']"></p>
         </div>
-      <!-- </router-link> -->
       <div class="other-bgcover right-bgcover"></div>
       <div class="other-bgcover"></div>
       <div class="desc">
@@ -99,23 +97,14 @@ export default {
   // 监听blogList数组变化
   watch: {
     blogList(newVal, oldVal) {
-      console.log(newVal, oldVal)
       this.blogShowList = newVal
-      if (oldVal.length !== 0) {
-        // 共用组件，每次数据变化产生过渡效果
-        this.$refs.blogSection.style['display'] = 'none'
-        setTimeout(() => {
-          this.$refs.blogSection.style['display'] = 'block'
-        }, 0)
-      }
     }
   },
   mounted(){
   },
   methods: {
     jump(val){
-      console.log(val)
-      this.$router.push({path:'article',query:{id:val.id}})
+      this.$router.push({path:'/article',query:{id:val.id}})
     }
   },
   components: {}
