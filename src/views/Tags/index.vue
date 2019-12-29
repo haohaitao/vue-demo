@@ -55,7 +55,6 @@ export default {
   methods:{
     //跳转文章详情页
     jump(val){
-      console.log(val)
       this.$router.push({path:'/article',query:{id:val.id}})
     }
   },

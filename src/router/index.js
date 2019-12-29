@@ -19,14 +19,13 @@ export default new Router({
       meta: { title: '首页-个人主页' }
     },
     {
-      path: '/page/:pageIndex',
+      path: '/page:pageIndex',
       component: () => import('@/views/Home'),
       name: 'homePage',
       meta: { title: '首页-个人主页' }
     },
     {
       path: '/tag',
-      // path: '/tag/:tagId(\\d+)',
       component: () => import('@/views/Tags'),
       name: 'tag',
       meta: { title: '标签页-个人主页' }

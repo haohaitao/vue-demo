@@ -18,7 +18,6 @@ const element = {
     Vue.use(DropdownMenu)
     Vue.use(DropdownItem)
     Vue.use(Tag)
-    Vue.component(Message)
     Vue.prototype.$message = Message;
   }
 }

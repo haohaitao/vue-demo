@@ -54,11 +54,8 @@ export default {
     },
     getBlogDetail() {
       let id = this.$route.query.id;
-      console.log(id)
       http.get('/wp-json/wp/v2/posts/' + id,'',rootUrl).then( (res)=>{
-        console.log(res)
         this.blog = res.data
-        console.log(this.blog,typeof this.blog)
         if(res.data.tags){
             this.tagData= [],//如果tags有内容，清空tagData
             res.data.tags.map( (item)=> {
@@ -71,9 +68,6 @@ export default {
     }
   },
   watch: {
-    // tagData(old,newData){
-    //   console.log(old,newData)
-    // }
   },
   components: {
   },
