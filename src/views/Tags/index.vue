@@ -60,11 +60,11 @@ export default {
   },
   mounted(){
     let id = this.$route.query.tagId;
-    http.get('/wp-json/wp/v2/posts' + '?tags=' + id,'',rootUrl).then( (res=> {
+    http.get('api/wp-json/wp/v2/posts' + '?tags=' + id,'','').then( (res=> {
       this.blogShowList = res.data
     }))
 
-    http.get('/wp-json/wp/v2/tags/' + id,'',rootUrl).then( (res)=> {
+    http.get('api/wp-json/wp/v2/tags/' + id,'','').then( (res)=> {
       this.title_content= res.data.name
     })
   },

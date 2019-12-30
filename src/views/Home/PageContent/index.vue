@@ -29,9 +29,9 @@ export default {
   },
   methods:{
     async getList(){
-        await http.get('/wp-json/wp/v2/posts?per_page=12',{
+        await http.get('api/wp-json/wp/v2/posts?per_page=12',{
           page:this.page
-        },rootUrl).then( (res)=> {
+        },'').then( (res)=> {
           res.data.forEach((item)=>{
             item.title = item.title.rendered
             item.excerpt = item.excerpt.rendered
@@ -56,7 +56,7 @@ export default {
         per_page:12,
         page:1
       }
-      http.get('/wp-json/wp/v2/posts',data,rootUrl).then( (res)=> {
+      http.get('/api/wp-json/wp/v2/posts',data,'').then( (res)=> {
           res.data.forEach((item)=>{
             item.title = item.title.rendered
             item.excerpt = item.excerpt.rendered

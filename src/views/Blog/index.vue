@@ -54,7 +54,7 @@ export default {
     },
     getBlogDetail() {
       let id = this.$route.query.id;
-      http.get('/wp-json/wp/v2/posts/' + id,'',rootUrl).then( (res)=>{
+      http.get('api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
         res.data.title = res.data.title.rendered
         res.data.content = res.data.content.rendered
         this.blog = res.data
@@ -62,7 +62,7 @@ export default {
         if(res.data.tags){
             this.tagData= [],//如果tags有内容，清空tagData
             res.data.tags.map( (item)=> {
-            http.get('/wp-json/wp/v2/tags/' + item,'',rootUrl).then( (res)=> {
+            http.get('api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
               this.tagData.push(res.data)
             })
           })

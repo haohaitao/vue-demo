@@ -26,7 +26,7 @@ export default {
           this.$message.error('数据获取失败');
       },
       getContent(){
-          http.get('/wp-json/wp/v2/pages/88','',rootUrl).then( (res)=> {
+          http.get('api/wp-json/wp/v2/pages/88','','').then( (res)=> {
               if(res.status === 200){
                   this.content = res.data.content.rendered
               }else{
