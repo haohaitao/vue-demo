@@ -8,12 +8,12 @@
         ></div>
       </div>
         <div class="bg-cover" @click="jump(val)">
-          <p v-html="val.excerpt['rendered']"></p>
+          <p v-html="val.excerpt"></p>
         </div>
       <div class="other-bgcover right-bgcover"></div>
       <div class="other-bgcover"></div>
       <div class="desc">
-          <p class="title" :title="val.title['rendered']">{{val.title['rendered']}}</p>
+          <p class="title" :title="val.title">{{val.title}}</p>
         <div class="desc-bottom">
           <div :class="{'d-detail': true, 'hidden-detail': !val.id}">
             <i class="iconfont">&#xe608;</i>

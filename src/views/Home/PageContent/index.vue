@@ -24,6 +24,7 @@ export default {
     return {
       blogList:[] ,//存接口返回的数据
       total:null, //返回数据的总条数
+      page:null, //默认页码
     }
   },
   methods:{
@@ -31,6 +32,10 @@ export default {
         await http.get('/wp-json/wp/v2/posts?per_page=12',{
           page:this.page
         },rootUrl).then( (res)=> {
+          res.data.forEach((item)=>{
+            item.title = item.title.rendered
+            item.excerpt = item.excerpt.rendered
+          })
           this.blogList = res.data
           this.total = parseInt(res.headers['x-wp-total'])
       })
@@ -52,6 +57,10 @@ export default {
         page:1
       }
       http.get('/wp-json/wp/v2/posts',data,rootUrl).then( (res)=> {
+          res.data.forEach((item)=>{
+            item.title = item.title.rendered
+            item.excerpt = item.excerpt.rendered
+          })
           this.blogList = res.data
           this.total = parseInt(res.headers['x-wp-total'])
       })

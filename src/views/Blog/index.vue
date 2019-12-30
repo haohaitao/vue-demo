@@ -1,12 +1,12 @@
 <template>
 <article class="detail-article" ref="article">
     <div class="art-header">
-      <h1>{{blog.title.rendered}}</h1>
+      <h1>{{blog.title}}</h1>
       <div class="header-info">
         <i class="el-icon-table-lamp"/>
           <router-link :to="`/category/${blog.category_name}`">{{blog.category_name}}</router-link>
         <i class="el-icon-date" />
-        {{blog.date.split('T')['0']}}
+        {{blog.date ? blog.date.split('T')['0'] :'1970-01-01'}}
         <i class="el-icon-view" />
         {{blog.pageviews}}
         <i class="el-icon-s-comment" />
@@ -19,13 +19,13 @@
       </div>
       <div class="tag-time">
         <i class="el-icon-timer" />
-        {{blog.date.split('T')['1']}}
+        {{blog.date ? blog.date.split('T')['1'] : '1970-01-01'}}
       </div>
     </div>
-    <div id="blog"  v-html="blog.content.rendered"></div>
+    <div id="blog"  v-html="blog.content"></div>
     <div class="content-footer">
       <p>本文由 <router-link to="/">{{blog.author === 1 ? '一只' : '博主'}}</router-link> 创作，转载请注明</p>
-      <p>最后编辑时间：{{blog.modified.split('T')['0'] + ' ' + blog.modified.split('T')['1']}}</p>
+      <p>最后编辑时间：{{(blog.modified ? blog.modified.split('T')['0'] :'1970-01-01') + ' ' + (blog.modified ? blog.modified.split('T')['1'] : '00:00:00')}}</p>
     </div>
   </article>
 </template>
@@ -44,7 +44,7 @@ export default {
   },
   computed: {
   },
-  mounted(){
+  created(){
     this.getBlogDetail();
   },
   methods: {
@@ -55,7 +55,10 @@ export default {
     getBlogDetail() {
       let id = this.$route.query.id;
       http.get('/wp-json/wp/v2/posts/' + id,'',rootUrl).then( (res)=>{
+        res.data.title = res.data.title.rendered
+        res.data.content = res.data.content.rendered
         this.blog = res.data
+        console.log(res.data)
         if(res.data.tags){
             this.tagData= [],//如果tags有内容，清空tagData
             res.data.tags.map( (item)=> {
