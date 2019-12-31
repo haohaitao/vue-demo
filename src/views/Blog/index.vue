@@ -58,8 +58,7 @@ export default {
         res.data.title = res.data.title.rendered
         res.data.content = res.data.content.rendered
         this.blog = res.data
-        console.log(res.data)
-        if(res.data.tags){
+        if(res.data.tags.length>0){
             this.tagData= [],//如果tags有内容，清空tagData
             res.data.tags.map( (item)=> {
             http.get('api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
