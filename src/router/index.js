@@ -31,6 +31,12 @@ export default new Router({
       meta: { title: '标签页-个人主页' }
     },
     {
+      path: '/categorie',
+      component: () => import('@/views/Categories'),
+      name: 'categorie',
+      meta: { title: '分类页-个人主页' }
+    },
+    {
       path: '/article',
       component: () => import('@/views/Blog'),
       name: 'blog',

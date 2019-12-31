@@ -18,12 +18,8 @@
                     分类<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                    <router-link to='/'>
-                        <el-dropdown-item>前端开发</el-dropdown-item>
-                    </router-link>
-                    <router-link to='/' >
-                        <el-dropdown-item>PHP</el-dropdown-item>
-                    </router-link>
+                        <el-dropdown-item icon="el-icon-star-on" @click.native="selectItem('21')">JavaScript</el-dropdown-item>
+                        <el-dropdown-item icon="el-icon-s-promotion" @click.native="selectItem('221')">PHP</el-dropdown-item>
                 </el-dropdown-menu>
                 </el-dropdown>
           </li>
@@ -53,10 +49,12 @@ export default {
     return {
     }
   },
-  created() {},
   mounted() {
   },
   methods: {
+    selectItem(select_item){
+      this.$router.push({path:'/categorie',query:{categorieId:select_item}})
+    }
   },
   components: {}
 }
