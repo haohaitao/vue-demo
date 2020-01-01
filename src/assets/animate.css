@@ -3623,3 +3623,10 @@
     animation-iteration-count: 1 !important;
   }
 }
+.content p img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+  display: block;
+}

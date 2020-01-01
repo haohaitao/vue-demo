@@ -24,9 +24,9 @@
                 </el-dropdown>
           </li>
           <!-- 可使用命名路由 -->
-          <router-link to="/">
+          <router-link to="/everyday">
             <li>
-              <i type="ios-link" style="font-weight: bold;"/>友链
+              <i type="ios-link" style="font-weight: bold;"/>每日一图
             </li>
           </router-link>
           <router-link to="/about">

@@ -49,6 +49,12 @@ export default new Router({
       meta: {title: '关于-个人主页'},
     },
     {
+      path: '/everyday',
+      component: () => import('@/views/Everyday'),
+      name: 'everyday',
+      meta: {title: '每日一图-个人主页'},
+    },
+    {
       path: '*',
       component: () => import('@/components/NotFound'),
       name: 'NotFound',
