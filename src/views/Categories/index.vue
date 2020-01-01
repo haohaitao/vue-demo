@@ -61,7 +61,7 @@ export default {
       blogShowList:[],
       total:null, //结果总数
       cateId:null, //分类id
-      page:null, //当前第几页
+      page:1, //当前第几页
       title_content:'', //上个页面点击的标签
     }
   },
@@ -76,7 +76,14 @@ export default {
       this.getList();
     },
     getList(){
+        let id = this.$route.query.categorieId;
+        this.cateId = id;
         http.get('api/wp-json/wp/v2/posts?per_page=12&page=' + this.page + '&categories=' + this.cateId,'','').then( (res=> {
+              if(id === '21'){
+                this.title_content= 'JavaScript'
+              }else if(id === '221' ){
+                  this.title_content= 'PHP'
+              }
             this.blogShowList = res.data
             this.total = parseInt(res.headers['x-wp-total'])
             }))
@@ -94,6 +101,17 @@ export default {
       this.blogShowList = res.data
       this.total = parseInt(res.headers['x-wp-total'])
     }))
+  },
+  computed:{
+    getCateId(){
+      return this.$store.state.cateId;
+    }
+  },
+  //监听计算属性返回的值
+  watch:{
+    getCateId(val){
+      this.getList();
+    }
   },
   filters: {
     setLink(id, link) {

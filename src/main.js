@@ -7,6 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import element from './element/index'
 import './assets/font/iconfont.css'
 import './assets/animate.css'
+import store from './store'
 
 Vue.use(element)
 Vue.config.productionTip = false
@@ -28,6 +29,7 @@ router.afterEach((to, from) => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   render: h => h(App),
   template: '<App/>'

@@ -18,7 +18,7 @@
                     分类<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item icon="el-icon-star-on" @click.native="selectItem('21')">JavaScript</el-dropdown-item>
+                        <el-dropdown-item icon="el-icon-star-on"  @click.native="selectItem('21')">JavaScript</el-dropdown-item>
                         <el-dropdown-item icon="el-icon-s-promotion" @click.native="selectItem('221')">PHP</el-dropdown-item>
                 </el-dropdown-menu>
                 </el-dropdown>
@@ -53,10 +53,14 @@ export default {
   },
   methods: {
     selectItem(select_item){
-      this.$router.push({path:'/categorie',query:{categorieId:select_item}})
+      sessionStorage.setItem('cateState',select_item)
+      if(select_item === sessionStorage.getItem('cateState')){
+          this.$store.commit('save',select_item)
+          this.$router.push({path:'/categorie',query:{categorieId:select_item}})
+      }
     }
   },
-  components: {}
+  components: {},
 }
 </script>
 
