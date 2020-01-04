@@ -76,7 +76,7 @@ header {
 
   .container {
     width: 1080px;
-    min-width: 100%;
+    min-width: 1080px;
     margin: 0 auto;
     height: 100%;
     color: #3c3c3c;
