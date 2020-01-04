@@ -1,5 +1,5 @@
 // 导入自己需要的组件
-import { Select, Option, OptionGroup, Input,Button, Tree, Dialog, Row, Col ,Tooltip,Pagination,Backtop,Dropdown, DropdownMenu,DropdownItem,Tag,Message} from 'element-ui'
+import { Select, Option, OptionGroup, Input,Button, Tree, Dialog, Row, Col ,Tooltip,Pagination,Backtop,Dropdown, DropdownMenu,DropdownItem,Tag,Message,Loading} from 'element-ui'
 const element = {
   install: function (Vue) {
     Vue.use(Select)
@@ -18,6 +18,9 @@ const element = {
     Vue.use(DropdownMenu)
     Vue.use(DropdownItem)
     Vue.use(Tag)
+    Vue.use(Loading.directive);
+
+    Vue.prototype.$loading = Loading.service;
     Vue.prototype.$message = Message;
   }
 }

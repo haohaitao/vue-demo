@@ -19,6 +19,11 @@
             <i type="logo-github"/>
           </a>
         </span>
+        <span class="github">
+          <a target="_blank" href="https://github.com/haohaitao">
+            <i class="iconfont">&#xe732;</i>
+          </a>
+        </span>
       </p>
 <el-backtop :right="260" :bottom="150">
     <div

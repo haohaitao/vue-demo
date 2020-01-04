@@ -7,6 +7,10 @@ export function get(url, data, host) {
 	});
 }
 
+export function postJson(uri, data, host) {
+	return crossRequest(host,uri,"post",data);
+}
+
 function crossRequest(host,uri,method,data){
 	if (!data) data = {};
 
@@ -24,10 +28,6 @@ function crossRequest(host,uri,method,data){
 			'Accept': 'application/json',
 		}
 	});
-}
-
-export function postJson(uri, data, host) {
-	return crossRequest(host,uri,"post",data);
 }
 
 //时间戳转时间 

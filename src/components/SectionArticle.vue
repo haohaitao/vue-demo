@@ -16,7 +16,7 @@
           <p class="title" :title="val.title">{{val.title}}</p>
         <div class="desc-bottom">
           <div :class="{'d-detail': true, 'hidden-detail': !val.id}">
-            <i class="iconfont">&#xe608;</i>
+            <i class="iconfont">&#xe662;</i>
             <span style="font-size: 14px;">{{val.date?val.date.split('T')[0]:''}}</span>
             <i class="iconfont">&#xe637;</i>
             <span style="font-size: 14px;">{{val.pageviews}}</span>

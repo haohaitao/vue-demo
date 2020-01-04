@@ -1,5 +1,5 @@
 <template>
-<article class="detail-article" ref="article">
+<article class="detail-article" ref="article" >
     <div class="art-header">
       <h1>{{blog.title}}</h1>
       <div class="header-info">
