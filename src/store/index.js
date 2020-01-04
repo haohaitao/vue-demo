@@ -12,12 +12,6 @@ const mutations={
         state.cateId=n;
     },
 }
-//实时监听state值的变化(最新状态)
-const getters = {
-    idChange(state) {  //方法名随意,
-       return state.cateId
-    },
-};
 export default new Vuex.Store({
     state,
     mutations,
