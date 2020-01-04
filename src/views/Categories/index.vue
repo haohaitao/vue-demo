@@ -92,7 +92,7 @@ export default {
   mounted(){
     let id = this.$route.query.categorieId;
     this.cateId = id;
-    http.get('api/wp-json/wp/v2/posts?per_page=12&page=1' + '&categories=' + this.cateId,'','').then( (res=> {
+    http.get('api/wp-json/wp/v2/posts?per_page=12' + '&categories=' + this.cateId,'','').then( (res=> {
       http.get('api/wp-json/wp/v2/categories/' + this.cateId,'','').then((res)=> {
         this.title_content= res.data.name
       })

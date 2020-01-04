@@ -54,7 +54,6 @@ export default {
   created(){
       let data = {
         per_page:12,
-        page:1
       }
       http.get('/api/wp-json/wp/v2/posts',data,'').then( (res)=> {
           res.data.forEach((item)=>{
