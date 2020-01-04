@@ -9,6 +9,7 @@
 # 项目布局
 
 ```
+.
 ├─ build								// webpack配置文件
 ├─ config								// 项目打包路径
 ├─ src									// 源码目录
@@ -39,6 +40,7 @@
 │           └─ Tags						//标签详情页
 ├─ index.html							// 入口html文件
 ├─ package.json							//依赖文件
+.
 
 ```
 ## Build Setup
