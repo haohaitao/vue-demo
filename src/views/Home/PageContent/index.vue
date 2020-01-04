@@ -73,7 +73,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped>
 main {
-  max-width: 1080px;
+  min-width: 1080px;
   margin: 90px auto 0;
 }
 </style>

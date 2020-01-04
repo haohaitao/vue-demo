@@ -61,7 +61,7 @@ footer {
 
   .container {
     width: 1080px;
-    max-width: 100%;
+    min-width: 100%;
     margin: 0 auto;
     height: 100%;
     text-align: center;
