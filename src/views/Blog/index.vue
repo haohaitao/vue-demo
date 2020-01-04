@@ -4,7 +4,7 @@
       <h1>{{blog.title}}</h1>
       <div class="header-info">
         <i class="el-icon-table-lamp"/>
-          <router-link :to="`/category/${blog.category_name}`">{{blog.category_name}}</router-link>
+          <router-link :to="`/categorie?categorieId=${blog.categories}`">{{blog.category_name}}</router-link>
         <i class="el-icon-date" />
         {{blog.date ? blog.date.split('T')['0'] :'1970-01-01'}}
         <i class="el-icon-view" />
@@ -57,6 +57,7 @@ export default {
       http.get('api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
         res.data.title = res.data.title.rendered
         res.data.content = res.data.content.rendered
+        res.data.categories = res.data.categories['0']
         this.blog = res.data
         if(res.data.tags.length>0){
             this.tagData= [],//如果tags有内容，清空tagData

@@ -93,11 +93,9 @@ export default {
     let id = this.$route.query.categorieId;
     this.cateId = id;
     http.get('api/wp-json/wp/v2/posts?per_page=12&page=1' + '&categories=' + this.cateId,'','').then( (res=> {
-    if(id === '21'){
-          this.title_content= 'JavaScript'
-        }else if(id === '221' ){
-            this.title_content= 'PHP'
-        }
+      http.get('api/wp-json/wp/v2/categories/' + this.cateId,'','').then((res)=> {
+        this.title_content= res.data.name
+      })
       this.blogShowList = res.data
       this.total = parseInt(res.headers['x-wp-total'])
     }))
@@ -133,6 +131,7 @@ export default {
     font-size: 35px;
     color: rgba(255,255,255,0.54);
     line-height: 145px;
+    animation: fadeIn 0.6s linear;
   }
 }
 section {
