@@ -27,16 +27,18 @@
       <p>本文由 <router-link to="/">{{blog.author === 1 ? '一只' : '博主'}}</router-link> 创作，转载请注明</p>
       <p>最后编辑时间：{{(blog.modified ? blog.modified.split('T')['0'] :'1970-01-01') + ' ' + (blog.modified ? blog.modified.split('T')['1'] : '00:00:00')}}</p>
     </div>
-    <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
+    <el-button @click="drawerChange" type="primary" style="margin-left: 16px;">
     更多相同文章
 </el-button>
 <el-drawer
   title="相似文章"
   direction="ltr"
-  :visible.sync="drawer"
+  :with-header="false"
+  :visible.sync="drawerState"
   >
-  <div v-for="item in related_posts" :key="item.ID" style="padding:30px;">
-    <p>{{item.post_title}}</p>
+  <h1 class="drawerTitle">相似文章</h1>
+  <div v-for="item in related_posts" :key="item.ID" class="contentList">
+    <el-link style="border: none;" @click="drawerPost(item)">{{item.post_title}}</el-link>
   </div>
 </el-drawer>
   </article>
@@ -54,14 +56,20 @@ export default {
         id:1,name:'占位标签'}], //存文章标签
         drawer: false,
         related_posts:[], //存相似文章
+        drawerState:false
     };
-  },
-  computed: {
   },
   created(){
     this.getBlogDetail();
   },
   methods: {
+    drawerChange(){
+      this.drawerState = true
+    },
+    drawerPost(item){
+      this.$store.commit('article',item.ID)
+      this.$router.push({path:'/article',query:{id:item.ID}})
+    },
     //跳转到标签分类页
     jump(item){
       this.$router.push({path:'/tag',query:{tagId:item.id}})
@@ -73,6 +81,7 @@ export default {
         res.data.content = res.data.content.rendered
         res.data.categories = res.data.categories['0']
         this.blog = res.data
+        this.drawerState = false
         if(res.data.related_posts.length>0){
           this.related_posts = res.data.related_posts
         }else{
@@ -92,10 +101,17 @@ export default {
       })
     }
   },
-  watch: {
+  computed:{
+    getCateId(){
+      return this.$store.state.articleId;
+    }
   },
-  components: {
-  },
+  //监听计算属性返回的值
+  watch:{
+    getCateId(){
+      this.getBlogDetail();
+    }
+  }
 };
 </script>
 
@@ -170,6 +186,15 @@ article {
       }
     }
   }
+}
+.drawerTitle{
+    padding: 20px 0 20px 30px;
+}
+.contentList{
+    padding: 0 0 20px 30px;
+}
+.contentList>a:hover{
+  color: #66b1ff !important;
 }
 </style>
 
