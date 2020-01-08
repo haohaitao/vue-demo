@@ -54,7 +54,7 @@ export default {
   if(to.query.id != from.query.id){
     setTimeout( ()=>{
       this.toTop()
-    },500)
+    },1000)
     next()
   }
 },
@@ -104,6 +104,7 @@ export default {
         res.data.content = res.data.content.rendered
         res.data.categories = res.data.categories['0']
         this.blog = res.data
+        this.drawerState = false
         if(res.data.related_posts.length>0){
           this.related_posts = res.data.related_posts
         }else{
@@ -120,7 +121,6 @@ export default {
             })
           })
         }
-        this.drawerState = false
       })
     }
   },
