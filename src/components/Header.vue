@@ -73,11 +73,14 @@ header {
   top: 0;
   z-index: 1;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
       width: 100%;
     }
-  @media screen and (min-width: 800px) {
-    width: 100%;
+  @media screen and (min-width: 1000px) and (max-width: 1800px) {
+      width: 100%;
+    }
+  @media screen and (min-width: 1800px) {
+    width: 1903px;
   }
   .container {
     width: 1080px;
@@ -85,11 +88,11 @@ header {
     margin: 0 auto;
     height: 100%;
     color: #3c3c3c;
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1000px) {
       width: 85%;
     }
-     @media screen and (min-width: 800px) {
-      width: 90%;
+    @media screen and (min-width: 1000px) {
+      width: 1080px;
     }
     a {
       color: #3c3c3c;
