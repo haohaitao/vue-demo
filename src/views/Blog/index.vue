@@ -38,7 +38,8 @@
   >
   <h1 class="drawerTitle">相似文章</h1>
   <div v-for="item in related_posts" :key="item.ID" class="contentList">
-    <el-link style="border: none;" @click="drawerPost(item)">{{item.post_title}}</el-link>
+    <el-link style="border: none;" v-if="item.ID !== '1228'" @click="drawerPost(item)">{{item.post_title}}</el-link>
+    <el-link style="border: none;" v-if="item.ID === '1228'" disabled @click="drawerPost(item)">{{item.post_title}}</el-link>
   </div>
 </el-drawer>
   </article>
