@@ -73,14 +73,24 @@ header {
   top: 0;
   z-index: 1;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-
+  @media screen and (max-width: 800px) {
+      width: 100%;
+    }
+  @media screen and (min-width: 800px) {
+    width: 100%;
+  }
   .container {
     width: 1080px;
     min-width: 1080px;
     margin: 0 auto;
     height: 100%;
     color: #3c3c3c;
-
+    @media screen and (max-width: 800px) {
+      width: 85%;
+    }
+     @media screen and (min-width: 800px) {
+      width: 90%;
+    }
     a {
       color: #3c3c3c;
       text-decoration: none;
