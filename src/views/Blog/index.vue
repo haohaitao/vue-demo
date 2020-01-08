@@ -1,5 +1,5 @@
 <template>
-<article class="detail-article" ref="article" >
+<article class="detail-article"  v-loading="loading">
     <div class="art-header">
       <h1>{{blog.title}}</h1>
       <div class="header-info">
@@ -61,11 +61,11 @@ export default {
   data () {
     return {
       blog: [],
-      tagData:[{
-        id:1,name:'占位标签'}], //存文章标签
+      tagData:[], //存文章标签
         drawer: false,
         related_posts:[], //存相似文章
-        drawerState:false
+        drawerState:false,
+        loading:true
     };
   },
   created(){
@@ -104,6 +104,7 @@ export default {
         res.data.content = res.data.content.rendered
         res.data.categories = res.data.categories['0']
         this.blog = res.data
+        this.loading = false
         this.drawerState = false
         if(res.data.related_posts.length>0){
           this.related_posts = res.data.related_posts
@@ -177,6 +178,7 @@ article {
     .header-tag {
       width: 85%;
       margin-top: 14px;
+      height: 33px;
       span {
         margin-right:12px;
       }
