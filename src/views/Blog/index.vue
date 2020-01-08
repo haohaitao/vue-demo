@@ -50,6 +50,14 @@ import * as http from '@/common/http'
 import * as config from '@/common/config'
 let rootUrl = config.default.apiUrl;
 export default {
+  beforeRouteUpdate (to, from, next) {
+  if(to.query.id != from.query.id){
+    setTimeout( ()=>{
+      this.toTop()
+    },500)
+    next()
+  }
+},
   data () {
     return {
       blog: [],
@@ -64,9 +72,22 @@ export default {
     this.getBlogDetail();
   },
   methods: {
+    //滚到顶部
+    toTop() {
+      let top = document.documentElement.scrollTop || document.body.scrollTop;
+      // 实现滚动效果 
+      const timeTop = setInterval(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = top -= 100;
+        if (top <= 0) {
+          clearInterval(timeTop);
+        }
+      }, 10)
+    },
+    //打开抽屉
     drawerChange(){
       this.drawerState = true
     },
+    //抽屉里的链接
     drawerPost(item){
       this.$store.commit('article',item.ID)
       this.$router.push({path:'/article',query:{id:item.ID}})
@@ -75,6 +96,7 @@ export default {
     jump(item){
       this.$router.push({path:'/tag',query:{tagId:item.id}})
     },
+    //获取页面详情
     getBlogDetail() {
       let id = this.$route.query.id;
       http.get('api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
@@ -82,7 +104,6 @@ export default {
         res.data.content = res.data.content.rendered
         res.data.categories = res.data.categories['0']
         this.blog = res.data
-        this.drawerState = false
         if(res.data.related_posts.length>0){
           this.related_posts = res.data.related_posts
         }else{
@@ -99,6 +120,7 @@ export default {
             })
           })
         }
+        this.drawerState = false
       })
     }
   },
