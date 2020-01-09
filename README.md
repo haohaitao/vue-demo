@@ -1,12 +1,11 @@
-# my-blog
+# vue-blog
 
-> 一套全新前端页面
+> vue实现的前端页面
 
-### 线上demo
+### 技术栈
+vue2 + vuex + vue-router + webpack + scss + element-ui
 
-[在线体验](http://vue.haoht123.com/)
-
-# 项目布局
+### 项目布局
 
 ```
 .
@@ -43,6 +42,7 @@
 .
 
 ```
+
 ## Build Setup
 
 ``` bash
