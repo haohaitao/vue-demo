@@ -1,5 +1,6 @@
 <template>
     <main>
+        <p>今天是{{time}}，欢迎来自【{{city}}】的朋友！</p>
         <SectionArticle :blogList="blogList"></SectionArticle>
         <div style="clear:both;margin:30px 0;">
             <el-pagination
@@ -25,6 +26,8 @@ export default {
       blogList:[] ,//存接口返回的数据
       total:null, //返回数据的总条数
       page:null, //默认页码
+      city:'获取中..', //定位城市
+      time:'', //时间
     }
   },
   methods:{
@@ -49,9 +52,28 @@ export default {
       } else {
         this.$router.push({ name: 'homePage', params: { pageIndex: page } })
       }
-    }
+    },
+    showCityInfo() {
+    //实例化城市查询类
+    var citysearch = new AMap.CitySearch();
+    //自动获取用户IP，返回当前城市
+    citysearch.getLocalCity((status, result) => {
+        if (status === 'complete' && result.info === 'OK') {
+            if (result && result.city && result.bounds) {
+                var cityinfo = result.city;
+                this.city = cityinfo
+            }
+        } else {
+            sessionStorage.setItem('err',result.info)
+        }
+    });
+}
   },
   created(){
+      this.showCityInfo() //获取城市
+      let timeTemp = new Date()
+      let currentTime = http.timestampToTimes(timeTemp)
+      this.time = currentTime
       let data = {
         per_page:12,
       }

@@ -11,7 +11,7 @@
       <span class="footer-flot sec-footer-flot">｜</span>
       <p class="link-git">
         <span class="name">
-          Copyright © 2019&nbsp;
+          Copyright © 2019-2020&nbsp;
           <a target="_blank" href="#">版权所有</a>&nbsp;
         </span>
         <span class="github">
