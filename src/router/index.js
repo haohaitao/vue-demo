@@ -1,17 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/views/Login/Login'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
     {
       path: '/',
       name: 'home',
@@ -53,6 +47,12 @@ export default new Router({
       component: () => import('@/views/Everyday'),
       name: 'everyday',
       meta: {title: '每日一图-个人主页'},
+    },
+    {
+      path: '/statistics',
+      component: () => import('@/views/Statistics'),
+      name: 'statistics',
+      meta: {title: '统计-个人主页'},
     },
     {
       path: '*',

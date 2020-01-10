@@ -29,6 +29,11 @@
               <i type="ios-link" style="font-weight: bold;"/>每日一图
             </li>
           </router-link>
+          <router-link to="/statistics">
+            <li>
+              <i type="md-heart"/>统计
+            </li>
+          </router-link>
           <router-link to="/about">
             <li>
               <i type="md-heart"/>关于
