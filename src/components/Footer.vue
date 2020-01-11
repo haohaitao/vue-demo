@@ -4,7 +4,7 @@
       <!-- 需要用到的竖线使用全角竖线｜ -->
       <span class="footer-flot sec-desc-footer">
         <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44081102000040"
+          href="http://www.beian.miit.gov.cn/"
           target="_blank"
         >豫ICP备17023037号-1</a>
       </span>
