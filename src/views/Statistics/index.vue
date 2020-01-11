@@ -1,7 +1,8 @@
 <template>
 <div class="wrapper animated bounceInDown">
-    <div id="content" :style="{width: '1100px', height: '357px'}">
-    </div>
+    <div id="pieId" :style="{width: '1100px', height: '357px'}"></div>
+    <div id="barId" :style="{width: '1100px', height: '357px'}"></div>
+    <div id="comment" :style="{width: '1100px', height: '557px'}"></div>
 </div>
 
 </template>
@@ -14,16 +15,38 @@ import * as draw from "@/common/drawing.js"
 export default {
   data () {
     return {
+        count:[],//存每种分类的文章数目
+        name:[], //存每种分类的名字
+        commentName:[],//留言的文章名字
+        commentTotal:[],//文章留言的数量
     };
   },
   methods: {
   },
   mounted(){
+      //分类内文章统计
+      let pieArr = [] //存处理过的数据 
       http.get('/api/wp-json/wp/v2/categories','','').then( (res)=> {
-          this.count = res.data.count //此分类的数目
-          this.name = res.data.name  //此分类的名字
+          res.data.forEach( (ele)=>{
+              this.count.push(ele.count)//此分类的数目
+              this.name.push(ele.name)//此分类的名字
+              let pieValue = ele.count
+              let pieName = ele.name
+              pieArr.push({value:pieValue,name:pieName})
+          })
+          draw.drawLine(this.count,this.name,'pieId','pie','分类统计',false,pieArr)
+          draw.drawLine(this.count,this.name,'barId','bar','分类统计',true)
       })
-      draw.drawLine(this.count,this.name)
+      //文章内留言统计
+      setTimeout( ()=> {
+        http.get('/api/wp-json/wp/v2/posts?per_page=100','','').then( (res)=> {
+            res.data.forEach( (ele)=> {
+                this.commentName.push(ele.title.rendered)
+                this.commentTotal.push(ele.total_comments)
+            })
+          draw.drawComment(this.commentTotal,this.commentName,'comment')
+      })
+      },500)
   }
 };
 </script>
