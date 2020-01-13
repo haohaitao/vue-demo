@@ -35,8 +35,8 @@ vue2 + vuex + vue-router + webpack + scss + element-ui
 │           ├─ Categories				//分类详情页面
 │           ├─ Everyday					//每日一图页面
 │           ├─ Home						//首页
-│           └─ Tags						//标签详情页
-│           └─ Tags						//标签详情页
+│           ├─ Tags						//标签详情页
+│			└─ Statistics	            //统计文章分类页面
 ├─ index.html							// 入口html文件
 ├─ package.json							//依赖文件
 .
