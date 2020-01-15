@@ -3,12 +3,11 @@
 > vue实现的前端页面
 
 ### 技术栈
-vue2 + vuex + vue-router + webpack + scss + element-ui
+vue-cli + vue2 + vuex + vue-router + axios + webpack + element-ui
 
 ### 项目布局
 
 ```
-.
 ├─ build								// webpack配置文件
 ├─ config								// 项目打包路径
 ├─ src									// 源码目录
@@ -39,8 +38,6 @@ vue2 + vuex + vue-router + webpack + scss + element-ui
 │			└─ Statistics	            //统计文章分类页面
 ├─ index.html							// 入口html文件
 ├─ package.json							//依赖文件
-.
-
 ```
 
 ## Build Setup
