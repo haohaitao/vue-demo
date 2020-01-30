@@ -64,4 +64,42 @@ button{
 .el-dropdown-menu__item{
   cursor: url("./assets/pic/cursor.cur"),pointer !important;
 }
+    .myself{
+        float:right;
+        background: #cfffcf;
+        margin: 1rem;
+        padding: .5rem;
+        border-radius: .6rem;
+    }
+    .friend{
+        float:left;
+        background: #ffe6b8;
+        margin: 1rem;
+        padding: .5rem;
+        border-radius: .6rem;
+    }
+    .clearboth{
+      color: gray;
+      clear: both;
+      margin-left: 20px;
+      padding-top: 5px;
+    }
+  /* 设置滚动条的样式 */
+  ::-webkit-scrollbar {
+      width: 6px;
+  }
+  /* 滚动槽 */
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+  }
+  /* 滚动条滑块 */
+  ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: #bbb;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+      background: rgba(255,0,0,0.4);
+  }
 </style>

@@ -39,6 +39,21 @@ vue-cli + vue2 + vuex + vue-router + axios + webpack + element-ui
 ├─ index.html							// 入口html文件
 ├─ package.json							//依赖文件
 ```
+## 运行图片
+### 首页
+![首页](https://i.loli.net/2020/01/30/v2moXDlOerKfkC9.jpg)
+
+### 分类页
+![分类页面](https://i.loli.net/2020/01/30/J5hK7BFdcC9enOl.jpg)
+
+### 每日一图
+![每日一图页面](https://i.loli.net/2020/01/30/QVtxrIhuXADRp26.jpg)
+
+### 聊天室
+![聊天室页面](https://i.loli.net/2020/01/30/7LUzIgJDaA8yRZf.jpg)
+
+### 聊天室(连接后页面)
+![聊天室(连接后页面)](https://i.loli.net/2020/01/30/73SUnLKoHtAyIaX.jpg)
 
 ## Build Setup
 

@@ -28,6 +28,7 @@ const createLintingRule = () => ({
   }
 })
 
+const webpack = require("webpack");
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -97,5 +98,11 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins:[
+    new webpack.ProvidePlugin({
+      jQuery:"jquery",
+      $:"jquery"
+    })
+  ]
 }

@@ -49,6 +49,12 @@ export default new Router({
       meta: {title: '每日一图-个人主页'},
     },
     {
+      path: '/online_chat',
+      component: () => import('@/views/Chat'),
+      name: 'chat',
+      meta: {title: '在线聊天室-个人主页'},
+    },
+    {
       path: '/statistics',
       component: () => import('@/views/Statistics'),
       name: 'statistics',

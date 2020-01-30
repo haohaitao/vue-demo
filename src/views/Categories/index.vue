@@ -122,7 +122,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .wrapper{
-  padding-top:100px;
+  margin-top: 70px;
   height: 150px;
   background: url(../../assets/imgs/category.jpg) no-repeat;
   background-size: cover;
@@ -130,7 +130,7 @@ export default {
     font-weight: 400;
     font-size: 35px;
     color: rgba(255,255,255,0.54);
-    line-height: 145px;
+    line-height: 150px;
     animation: fadeIn 0.6s linear;
   }
 }
