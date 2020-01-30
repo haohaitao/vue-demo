@@ -102,7 +102,7 @@ export default {
       }else {
         let uname = this.username;
         //实例化websocket
-        var ws = new WebSocket("ws://127.0.0.1:8888");
+        var ws = new WebSocket("wss://tool.haoht123.com/wss/");
         this.wsObject = ws
         //连接成功的回调onopen
         ws.onopen = function(e) {

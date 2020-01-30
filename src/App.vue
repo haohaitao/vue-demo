@@ -84,6 +84,14 @@ button{
       margin-left: 20px;
       padding-top: 5px;
     }
+    .stystem{
+      padding: .2rem;
+      background: #eee;
+      width: 22rem;
+      margin: 0 auto;
+      border-radius: 1.2rem;
+      margin: .5rem auto;
+    }
   /* 设置滚动条的样式 */
   ::-webkit-scrollbar {
       width: 6px;
