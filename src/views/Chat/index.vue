@@ -81,7 +81,7 @@ export default {
     return {
       username: "", //用户名
       online_total: 0, //在线人数
-      timeout: 60000, //延时
+      timeout: 6000, //延时
       wsTimeoutObj: null, //延时器对象
       disabled: true, //默认禁止点击断开按钮
       wsObject: {}, //存链接后的，websocket实例对象
