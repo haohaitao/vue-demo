@@ -31,7 +31,6 @@
         </div>
       </div>
     </article>
-    <div class="clear"></div>
   </section>
 </template>
 
