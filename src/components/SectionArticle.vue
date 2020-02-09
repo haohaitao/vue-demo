@@ -103,7 +103,7 @@ export default {
   },
   methods: {
     jump(val){
-      this.$router.push({path:'/article',query:{id:val.id}})
+      this.$router.push({ name: 'blog', params: { id: val.id } })
     }
   },
   components: {}

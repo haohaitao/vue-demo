@@ -26,6 +26,7 @@
     <div class="content-footer">
       <p>本文由 <router-link to="/">{{blog.author === 1 ? '一只' : '博主'}}</router-link> 创作，转载请注明</p>
       <p>最后编辑时间：{{(blog.modified ? blog.modified.split('T')['0'] :'1970-01-01') + ' ' + (blog.modified ? blog.modified.split('T')['1'] : '00:00:00')}}</p>
+      <div id="vcomments"></div>
     </div>
     <el-button @click="drawerChange" type="primary" style="margin-left: 16px;">
     更多相同文章
@@ -48,13 +49,16 @@
 <script>
 import * as http from '@/common/http'
 import * as config from '@/common/config'
+// Use import
+import Valine from 'valine';
 let rootUrl = config.default.apiUrl;
 export default {
+   name: 'Detail',
   beforeRouteUpdate (to, from, next) {
-  if(to.query.id != from.query.id){
+  if(to.params.id != from.params.id){
     setTimeout( ()=>{
       this.toTop()
-    },1000)
+    },1500)
     next()
   }
 },
@@ -70,6 +74,19 @@ export default {
   },
   created(){
     this.getBlogDetail();
+  },
+  mounted(){
+      new Valine({
+        el: '#vcomments' ,
+        appId: 'ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz',
+        appKey: 'XUQYTndxPIoWfXbJmPyLE6wc', 
+        notify:true, 
+        verify:true, 
+        avatar:'mp', 
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        recordIP:true,
+        path:window.location.pathname
+      })
   },
   methods: {
     //滚到顶部
@@ -90,7 +107,7 @@ export default {
     //抽屉里的链接
     drawerPost(item){
       this.$store.commit('article',item.ID)
-      this.$router.push({path:'/article',query:{id:item.ID}})
+      this.$router.push({name:'blog',params:{id:item.ID}})
     },
     //跳转到标签分类页
     jump(item){
@@ -98,8 +115,8 @@ export default {
     },
     //获取页面详情
     getBlogDetail() {
-      let id = this.$route.query.id;
-      http.get('api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
+      let id = this.$route.params.id;
+      http.get('/api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
         res.data.title = res.data.title.rendered
         res.data.content = res.data.content.rendered
         res.data.categories = res.data.categories['0']
@@ -117,11 +134,22 @@ export default {
         if(res.data.tags.length>0){
             this.tagData= [],//如果tags有内容，清空tagData
             res.data.tags.map( (item)=> {
-            http.get('api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
+            http.get('/api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
               this.tagData.push(res.data)
             })
           })
         }
+        new Valine({
+          el: '#vcomments' ,
+          appId: 'ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz',
+          appKey: 'XUQYTndxPIoWfXbJmPyLE6wc', 
+          notify:true, 
+          verify:true, 
+          avatar:'mp', 
+          placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+          recordIP:true,
+          path:window.location.pathname
+        })
       })
     }
   },
