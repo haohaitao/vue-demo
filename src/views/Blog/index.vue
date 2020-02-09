@@ -117,39 +117,30 @@ export default {
     getBlogDetail() {
       let id = this.$route.params.id;
       http.get('/api/wp-json/wp/v2/posts/' + id,'','').then( (res)=>{
-        res.data.title = res.data.title.rendered
-        res.data.content = res.data.content.rendered
-        res.data.categories = res.data.categories['0']
-        this.blog = res.data
-        this.loading = false
-        this.drawerState = false
-        if(res.data.related_posts.length>0){
-          this.related_posts = res.data.related_posts
-        }else{
-          this.related_posts = [{
-            ID:'1228',
-            post_title:'暂时没有相似文章哦！'
-          }]
+        if(res.status === 200){
+            res.data.title = res.data.title.rendered
+            res.data.content = res.data.content.rendered
+            res.data.categories = res.data.categories['0']
+            this.blog = res.data
+            this.loading = false
+            this.drawerState = false
+            if(res.data.related_posts.length>0){
+              this.related_posts = res.data.related_posts
+            }else{
+              this.related_posts = [{
+                ID:'1228',
+                post_title:'暂时没有相似文章哦！'
+              }]
+            }
+            if(res.data.tags.length>0){
+                this.tagData= [],//如果tags有内容，清空tagData
+                res.data.tags.map( (item)=> {
+                http.get('/api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
+                  this.tagData.push(res.data)
+                })
+              })
+            }
         }
-        if(res.data.tags.length>0){
-            this.tagData= [],//如果tags有内容，清空tagData
-            res.data.tags.map( (item)=> {
-            http.get('/api/wp-json/wp/v2/tags/' + item,'','').then( (res)=> {
-              this.tagData.push(res.data)
-            })
-          })
-        }
-        new Valine({
-          el: '#vcomments' ,
-          appId: 'ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz',
-          appKey: 'XUQYTndxPIoWfXbJmPyLE6wc', 
-          notify:true, 
-          verify:true, 
-          avatar:'mp', 
-          placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-          recordIP:true,
-          path:window.location.pathname
-        })
       })
     }
   },
@@ -162,6 +153,17 @@ export default {
   watch:{
     getCateId(){
       this.getBlogDetail();
+      new Valine({
+        el: '#vcomments' ,
+        appId: 'ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz',
+        appKey: 'XUQYTndxPIoWfXbJmPyLE6wc', 
+        notify:true, 
+        verify:true, 
+        avatar:'mp', 
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        recordIP:true,
+        path:this.$route.path
+      })
     }
   }
 };
