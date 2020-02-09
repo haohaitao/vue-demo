@@ -60,7 +60,7 @@ export default {
 
 <style lang='scss' scoped>
 footer {
-  margin-top: 16px;
+  padding-top: 50px;
   height: 120px;
   background: rgba(255, 255, 255, 0.5);
 

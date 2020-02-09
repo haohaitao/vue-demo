@@ -85,7 +85,7 @@ export default {
         avatar:'mp', 
         placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
         recordIP:true,
-        path:window.location.pathname
+        path:this.$route.path
       })
   },
   methods: {
