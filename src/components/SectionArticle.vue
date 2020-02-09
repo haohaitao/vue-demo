@@ -17,7 +17,7 @@
         <div class="desc-bottom">
           <div :class="{'d-detail': true, 'hidden-detail': !val.id}">
             <i class="iconfont">&#xe662;</i>
-            <span style="font-size: 14px;">{{val.date?val.date.split('T')[0]:''}}</span>
+            <span style="font-size: 14px;">{{val.post_date}}</span>
             <i class="iconfont">&#xe637;</i>
             <span style="font-size: 14px;">{{val.pageviews}}</span>
             <i class="iconfont">&#xe607;</i>

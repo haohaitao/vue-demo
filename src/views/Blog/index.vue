@@ -6,7 +6,7 @@
         <i class="el-icon-table-lamp"/>
           <router-link :to="`/categorie?categorieId=${blog.categories}`">{{blog.category_name}}</router-link>
         <i class="el-icon-date" />
-        {{blog.date ? blog.date.split('T')['0'] :'1970-01-01'}}
+        {{blog.post_date}}
         <i class="el-icon-view" />
         {{blog.pageviews}}
         <i class="el-icon-s-comment" />
