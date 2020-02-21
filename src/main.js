@@ -7,6 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import element from './element/index'
 import './assets/font/iconfont.css'
 import './assets/animate.css'
+import './assets/highlight.css'
 import $ from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
