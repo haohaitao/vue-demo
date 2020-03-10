@@ -68,7 +68,7 @@ export default {
   methods:{
     //跳转文章详情页
     jump(val){
-      this.$router.push({path:'/article',query:{id:val.id}})
+	  this.$router.push({ name: 'blog', params: { id: val.id } })
     },
     //页码改变触发事件
     handleCurrentChange(page){
