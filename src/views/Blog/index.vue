@@ -79,17 +79,17 @@ export default {
     this.getBlogDetail();
   },
   mounted() {
-    new Valine({
-      el: "#vcomments",
-      appId: "ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz",
-      appKey: "XUQYTndxPIoWfXbJmPyLE6wc",
-      notify: true,
-      verify: true,
-      avatar: "mp",
-      placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-      recordIP: true,
-      path: this.$route.path
-    });
+    // new Valine({
+    //   el: "#vcomments",
+    //   appId: "ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz",
+    //   appKey: "XUQYTndxPIoWfXbJmPyLE6wc",
+    //   notify: true,
+    //   verify: true,
+    //   avatar: "mp",
+    //   placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+    //   recordIP: true,
+    //   path: this.$route.path
+    // });
   },
   methods: {
     //滚到顶部
@@ -152,26 +152,26 @@ export default {
     }
   },
   computed: {
-    getCateId() {
-      return this.$store.state.articleId;
-    }
+    // getCateId() {
+    //   return this.$store.state.articleId;
+    // }
   },
   //监听计算属性返回的值
   watch: {
-    getCateId() {
-      this.getBlogDetail();
-      new Valine({
-        el: "#vcomments",
-        appId: "ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz",
-        appKey: "XUQYTndxPIoWfXbJmPyLE6wc",
-        notify: true,
-        verify: true,
-        avatar: "mp",
-        placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
-        recordIP: true,
-        path: this.$route.path
-      });
-    }
+    // getCateId() {
+    //   this.getBlogDetail();
+    //   new Valine({
+    //     el: "#vcomments",
+    //     appId: "ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz",
+    //     appKey: "XUQYTndxPIoWfXbJmPyLE6wc",
+    //     notify: true,
+    //     verify: true,
+    //     avatar: "mp",
+    //     placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+    //     recordIP: true,
+    //     path: this.$route.path
+    //   });
+    // }
   }
 };
 </script>
