@@ -14,3 +14,4 @@ yarn-error.log*
 *.sln
 src/common/config.js
 *.history
+.config
