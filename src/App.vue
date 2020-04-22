@@ -122,13 +122,13 @@ button {
 /* 移动端滚动顶部样式 */
 .Mobile_goback{
     right: 40% !important;
-    position: absolute;
-    border-radius: 0;
-    background: none;
-    width: 100px;
-    font-size: 13px;
-    box-shadow: none;
-    color: black;
+    position: absolute !important;
+    border-radius: 0 !important;
+    background: none !important;
+    width: 100px !important;
+    font-size: 13px !important;
+    box-shadow: none !important;
+    color: black !important;
 }
 
 @media screen and (max-width: 1000px) {
