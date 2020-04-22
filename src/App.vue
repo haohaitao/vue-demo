@@ -131,68 +131,45 @@ button {
     color: black;
 }
 
-@media screen and (max-width: 330px) {
-  /* 每行显示一个博客，左右外边框再次变小 */
-  .section-article {
-    width: 100%;
-  }
-  .section-article article {
-    width: 86% !important;
-    margin-left: 7% !important;
-    margin-right: 7% !important;
-  }
-}
-
-@media screen and (max-width: 370px) {
-  /* 底部响应式 */
-  footer .container .link-git {
-    top: 30% !important;
-  }
-}
-
-@media screen and (max-width: 408px) {
-  /* 每行显示一个博客，左右外边框变小 */
-  .section-article {
-    width: 100%;
-  }
-  .section-article article {
-    width: 80% !important;
-    margin-left: 10% !important;
-    margin-right: 10% !important;
-  }
-}
-
-@media screen and (max-width: 460px) {
-  /* 时间隐藏 */
-  .detail-article .art-header .tag-time {
+@media screen and (max-width: 1000px) {
+  /* 滚动顶部距离 */
+  footer .desktop_goback{
     display: none;
   }
-  .detail-article .art-header .header-tag {
-    width: 100% !important;
+  footer .Mobile_goback{
+    display: block;
   }
 }
 
-@media screen and (max-width: 600px) {
-  /* 头部菜单收起 */
-  .head-page .home-left {
-    float: none !important;
-    text-align: center;
+@media screen and (min-width: 1000px) {
+  /* 滚动顶部距离 */
+  footer .desktop_goback{
+    display: block;
+  }
+  footer .Mobile_goback{
     display: none;
   }
-  .wrapper .tag_title{
-    font-size: 24px;
+}
+
+@media screen and (max-width: 967px) {
+  /* 每行显示两个博客 */
+  .section-article {
+    width: 680px;
   }
-  .head-page .nav-coll-menu{
-    display: block !important;
+  .section-article article {
+    margin-left: 30px !important;
+    margin-right: 30px !important;
   }
-  .head-page .nav {
-    position: absolute !important;
-    top: 0;
-    right: 6px;
-    margin-left: 6px;
+}
+
+@media screen and (max-width: 780px) {
+  /* 每行显示两个博客时，中间空格减小 */
+  .section-article {
+    width: 640px;
   }
-  .head-page .nav .nav-far {
-    visibility: hidden !important;;
+  .section-article article {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
   }
 }
 
@@ -222,45 +199,68 @@ button {
   }
 }
 
-@media screen and (max-width: 780px) {
-  /* 每行显示两个博客时，中间空格减小 */
-  .section-article {
-    width: 640px;
-  }
-  .section-article article {
-    margin-left: 20px !important;
-    margin-right: 20px !important;
-  }
-}
-
-@media screen and (max-width: 967px) {
-  /* 每行显示两个博客 */
-  .section-article {
-    width: 680px;
-  }
-  .section-article article {
-    margin-left: 30px !important;
-    margin-right: 30px !important;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  /* 滚动顶部距离 */
-  footer .desktop_goback{
+@media screen and (max-width: 600px) {
+  /* 头部菜单收起 */
+  .head-page .home-left {
+    float: none !important;
+    text-align: center;
     display: none;
   }
-  footer .Mobile_goback{
-    display: block;
+  .wrapper .tag_title{
+    font-size: 24px;
+  }
+  .head-page .nav-coll-menu{
+    display: block !important;
+  }
+  .head-page .nav {
+    position: absolute !important;
+    top: 0;
+    right: 6px;
+    margin-left: 6px;
+  }
+  .head-page .nav .nav-far {
+    visibility: hidden !important;;
   }
 }
 
-@media screen and (min-width: 1000px) {
-  /* 滚动顶部距离 */
-  footer .desktop_goback{
-    display: block;
-  }
-  footer .Mobile_goback{
+@media screen and (max-width: 460px) {
+  /* 时间隐藏 */
+  .detail-article .art-header .tag-time {
     display: none;
+  }
+  .detail-article .art-header .header-tag {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 408px) {
+  /* 每行显示一个博客，左右外边框变小 */
+  .section-article {
+    width: 100%;
+  }
+  .section-article article {
+    width: 80% !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  /* 底部响应式 */
+  footer .container .link-git {
+    top: 30% !important;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  /* 每行显示一个博客，左右外边框再次变小 */
+  .section-article {
+    width: 100%;
+  }
+  .section-article article {
+    width: 86% !important;
+    margin-left: 7% !important;
+    margin-right: 7% !important;
   }
 }
 </style>

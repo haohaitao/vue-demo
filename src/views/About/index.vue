@@ -38,6 +38,7 @@ export default {
 .wrapper {
     margin: 100px auto auto;
     max-width: 900px;
+    padding: 0 15px;
     .content {
         text-align:left;
         line-height: 30px;

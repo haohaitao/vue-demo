@@ -5,6 +5,7 @@
         <i class="el-icon-cherry"/>
         <router-link to="/">个人主页</router-link>
       </div>
+      
       <!-- 移动端菜单 -->
       <div
         class="nav-coll-menu"
@@ -54,6 +55,7 @@
         </ul>
       </div>
     <!-- 移动端菜单 end -->
+
       <div class="nav right">
         <ul class="nav-far">
           <router-link to="/">
