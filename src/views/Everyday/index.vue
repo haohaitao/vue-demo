@@ -46,7 +46,8 @@ export default {
 <style lang='scss' scoped>
 .wrapper {
     margin: 100px auto auto;
-    width: 900px;
+    max-width: 900px;
+    padding: 0 10px 10px 10px;
     .content {
         text-align:left;
         line-height: 30px;

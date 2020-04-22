@@ -2,13 +2,13 @@
   <footer>
     <div class="container">
       <!-- 需要用到的竖线使用全角竖线｜ -->
-      <span class="footer-flot sec-desc-footer">
+      <span class="footer-flot">
         <a
           href="http://www.beian.miit.gov.cn/"
           target="_blank"
         >豫ICP备17023037号-1</a>
       </span>
-      <span class="footer-flot sec-footer-flot">｜</span>
+      <span class="footer-flot">｜</span>
       <p class="link-git">
         <span class="name">
           Copyright © 2019-2020&nbsp;
@@ -25,7 +25,8 @@
           </a>
         </span>
       </p>
-<el-backtop :right="260" :bottom="150">
+      <!-- pc端显示 -->
+<el-backtop :right="260" :bottom="150" class="desktop_goback">
     <div
       style="{
         height: 100%;
@@ -38,6 +39,12 @@
       }"
     >
       ▲
+    </div>
+  </el-backtop>
+  <!-- 移动端显示 -->
+  <el-backtop :bottom="88" class="Mobile_goback">
+    <div>
+      返回顶部
     </div>
   </el-backtop>
     </div>
@@ -66,7 +73,7 @@ footer {
 
   .container {
     width: 1080px;
-    min-width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     height: 100%;
     text-align: center;

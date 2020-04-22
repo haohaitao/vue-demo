@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="section-article">
     <article v-for="(val, index) in blogShowList" :key="index">
       <div class="bg-container">
         <div

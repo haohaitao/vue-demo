@@ -90,6 +90,9 @@ button {
   margin-left: 20px;
   padding-top: 5px;
 }
+.right {
+  float: right;
+}
 .stystem {
   padding: 0.2rem;
   background: #eee;
@@ -115,5 +118,149 @@ button {
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgba(255, 0, 0, 0.4);
+}
+/* 移动端滚动顶部样式 */
+.Mobile_goback{
+    right: 40% !important;
+    position: absolute;
+    border-radius: 0;
+    background: none;
+    width: 100px;
+    font-size: 13px;
+    box-shadow: none;
+    color: black;
+}
+
+@media screen and (max-width: 330px) {
+  /* 每行显示一个博客，左右外边框再次变小 */
+  .section-article {
+    width: 100%;
+  }
+  .section-article article {
+    width: 86% !important;
+    margin-left: 7% !important;
+    margin-right: 7% !important;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  /* 底部响应式 */
+  footer .container .link-git {
+    top: 30% !important;
+  }
+}
+
+@media screen and (max-width: 408px) {
+  /* 每行显示一个博客，左右外边框变小 */
+  .section-article {
+    width: 100%;
+  }
+  .section-article article {
+    width: 80% !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  /* 时间隐藏 */
+  .detail-article .art-header .tag-time {
+    display: none;
+  }
+  .detail-article .art-header .header-tag {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* 头部菜单收起 */
+  .head-page .home-left {
+    float: none !important;
+    text-align: center;
+    display: none;
+  }
+  .wrapper .tag_title{
+    font-size: 24px;
+  }
+  .head-page .nav-coll-menu{
+    display: block !important;
+  }
+  .head-page .nav {
+    position: absolute !important;
+    top: 0;
+    right: 6px;
+    margin-left: 6px;
+  }
+  .head-page .nav .nav-far {
+    visibility: hidden !important;;
+  }
+}
+
+@media screen and (max-width: 647px) {
+  /* 每行显示一个博客，大小根据屏幕变化 */
+  .section-article {
+    width: 100%;
+  }
+  .section-article article {
+    width: 70% !important;
+    margin-left: 15% !important;
+    margin-right: 15% !important;
+  }
+  /* 底部响应式 */
+  footer .container .link-git {
+    position: absolute !important;
+    top: 40px !important;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  footer .container .footer-flot {
+    top: 64% !important;
+  }
+  footer .container .sec-footer-flot {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  /* 每行显示两个博客时，中间空格减小 */
+  .section-article {
+    width: 640px;
+  }
+  .section-article article {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+}
+
+@media screen and (max-width: 967px) {
+  /* 每行显示两个博客 */
+  .section-article {
+    width: 680px;
+  }
+  .section-article article {
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  /* 滚动顶部距离 */
+  footer .desktop_goback{
+    display: none;
+  }
+  footer .Mobile_goback{
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  /* 滚动顶部距离 */
+  footer .desktop_goback{
+    display: block;
+  }
+  footer .Mobile_goback{
+    display: none;
+  }
 }
 </style>
