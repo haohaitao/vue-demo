@@ -204,7 +204,6 @@ button {
   .head-page .home-left {
     float: none !important;
     text-align: center;
-    display: none;
   }
   .wrapper .tag_title{
     font-size: 24px;
@@ -262,5 +261,10 @@ button {
     margin-left: 7% !important;
     margin-right: 7% !important;
   }
+}
+
+/* 分页根据设备宽度换行 */
+.el-pagination{
+  white-space:normal !important;
 }
 </style>

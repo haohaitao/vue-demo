@@ -5,7 +5,7 @@
         <div style="clear:both;margin:30px 0;">
             <el-pagination
             v-if="total > 12"
-            background
+            small
             layout="prev, pager, next"
             :page-size="12"
             @current-change="handleCurrentChange"
