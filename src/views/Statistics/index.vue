@@ -1,8 +1,8 @@
 <template>
 <div class="wrapper animated bounceInDown">
-    <div id="pieId" :style="{width: '1100px', height: '357px'}"></div>
-    <div id="barId" :style="{width: '1100px', height: '357px'}"></div>
-    <div id="comment" :style="{width: '1100px', height: '557px'}"></div>
+    <div id="pieId" :style="{maxWidth: '1100px', height: '357px'}"></div>
+    <div id="barId" :style="{maxWidth: '1100px', height: '357px'}"></div>
+    <div id="comment" :style="{maxWidth: '1100px', height: '557px'}"></div>
 </div>
 
 </template>
@@ -54,7 +54,7 @@ export default {
 <style lang='scss' scoped>
 .wrapper {
     margin: 100px auto auto;
-    width: 900px;
+    max-width: 900px;
     .content {
         text-align:left;
         line-height: 30px;
