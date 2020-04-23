@@ -139,6 +139,13 @@ button {
   footer .Mobile_goback{
     display: block;
   }
+  .chat_side {
+    width:90% !important;
+    margin-right:0 !important;
+  }
+  .chat_content {
+    width:90% !important;
+  }
 }
 
 @media screen and (min-width: 1000px) {

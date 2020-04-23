@@ -1,5 +1,5 @@
 <template>
-  <div style="min-width: 1050px;margin-bottom: 30px;">
+  <div class="chat_wrapper">
     <blockquote style="margin-top: 100px;text-align: center;">
       Websocket是一种用于H5浏览器的实时通讯协议，可以做到数据的实时推送，本项目基于Websocket制作。
       <p>
@@ -13,10 +13,9 @@
         <cite title="Source Title">在线聊天室</cite>
       </small>
     </blockquote>
-    <div style="margin:0 auto;text-align:center;">
+    <div class="side_wrapper">
         <div
-          class="panel panel-default"
-          style="padding-left:0;padding-right:0;margin-right:20px;height:380px;width: 270px;display: inline-block;"
+          class="panel panel-default chat_side"
         >
           <div class="panel-heading">
             <h3 class="panel-title">
@@ -26,29 +25,27 @@
           </div>
           <!-- 用户列表 -->
           <div
-            class="panel-body"
+            class="panel-body chat_list"
             id="user_list"
-            style="overflow: auto;-webkit-overflow-scrolling: touch;height: 340px;"
           ></div>
         </div>
         <!-- 内容 -->
-        <div class="panel panel-success" style="padding-left:0;padding-right:0;width:750px;display: inline-block;">
+        <div class="panel panel-success chat_content">
           <div class="panel-heading">
             <h3 class="panel-title">公共聊天室</h3>
           </div>
           <div
             ref="content"
-            class="panel-body"
-            style="height: 340px;overflow: auto;-webkit-overflow-scrolling: touch;"
+            class="panel-body public_content"
           >
-            <div class="panel-body" id="msg_list" style="height: 300px;overflow: auto;-webkit-overflow-scrolling: touch;">
+            <div class="panel-body" id="msg_list">
 
             </div>
           </div>
         </div>
         <!-- 提交栏 -->
-        <div style="height:80px;width:1040px;margin:0 auto;">
-          <div style="padding-left: 0;padding-right: 0;margin-bottom:30px;">
+        <div class="send_msg">
+          <div class="send_msg_main">
             <div class="input-group">
               <input
                 type="text"
@@ -305,4 +302,61 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.chat_wrapper {
+  max-width: 1050px;
+  margin-bottom: 30px;
+  margin:0 auto;
+}
+
+.chat_content {
+  padding-left:0;
+  padding-right:0;
+  width:750px;
+  display: inline-block;
+}
+
+.chat_list {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 340px;
+}
+
+.side_wrapper {
+  margin:0 auto;
+  text-align:center;
+}
+
+.chat_side {
+  padding-left:0;
+  padding-right:0;
+  margin-right:20px;
+  height:380px;
+  width: 270px;
+  display: inline-block;
+}
+
+.public_content {
+  height: 340px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#msg_list {
+  height: 300px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.send_msg {
+  height:80px;
+  max-width:1040px;
+  margin:0 10px;
+  margin-bottom:15px;
+}
+
+.send_msg_main {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom:30px;
+}
 </style>
