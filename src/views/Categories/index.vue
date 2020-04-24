@@ -90,6 +90,9 @@ export default {
     }
   },
   mounted(){
+    //移动端——关闭菜单
+    this.$store.commit('change_menu',false)
+
     let id = this.$route.query.categorieId;
     this.cateId = id;
     http.get('api/wp-json/wp/v2/posts?per_page=12' + '&categories=' + this.cateId,'','').then( (res=> {
@@ -109,6 +112,8 @@ export default {
   watch:{
     getCateId(val){
       this.getList();
+      //移动端——关闭菜单
+      this.$store.commit('change_menu',false)
     }
   },
   filters: {

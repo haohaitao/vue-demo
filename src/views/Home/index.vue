@@ -11,6 +11,9 @@ export default {
     return {
     }
   },
+  mounted() {
+    this.$store.commit('change_menu',false)
+  },
   components: {
     Content: () => import('./PageContent')
   }

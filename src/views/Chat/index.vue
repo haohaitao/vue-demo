@@ -84,6 +84,10 @@ export default {
       wsObject: {}, //存链接后的，websocket实例对象
     };
   },
+  mounted(){
+    //移动端——关闭菜单
+    this.$store.commit('change_menu',false)
+  },
   methods: {
     btnLink() {
       // 改变this指向

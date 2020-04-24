@@ -24,6 +24,9 @@ export default {
   methods: {
   },
   mounted(){
+    //移动端——关闭菜单
+        this.$store.commit('change_menu',false)
+
       //分类内文章统计
       let pieArr = [] //存处理过的数据 
       http.get('/api/wp-json/wp/v2/categories','','').then( (res)=> {
@@ -46,7 +49,7 @@ export default {
             })
           draw.drawComment(this.commentTotal,this.commentName,'comment')
       })
-      },500)
+      },300)
   }
 };
 </script>

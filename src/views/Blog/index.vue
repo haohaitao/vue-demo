@@ -79,6 +79,9 @@ export default {
     this.getBlogDetail();
   },
   mounted() {
+    //移动端——关闭菜单
+    this.$store.commit('change_menu',false)
+    
     new Valine({
       el: "#vcomments",
       appId: "ukolQhihPfilr7h6T7LkfeTm-gzGzoHsz",

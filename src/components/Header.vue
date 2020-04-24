@@ -108,12 +108,22 @@ let rootUrl = config.default.apiUrl;
 export default {
   data() {
     return {
-      isVisibleNavFar: false
+      isVisibleNavFar: this.$store.state.mobile_menu
     }
   },
   mounted() {
-      this.$refs.collMenuNavFar.onmouseleave = () => {
-      this.isVisibleNavFar = false
+    this.$store.commit('change_menu',false)
+  },
+  //返回最新的mobile_menu
+  computed:{
+    getCateId(){
+      return this.$store.state.mobile_menu
+    }
+  },
+  //监听计算属性返回的值
+  watch:{
+    getCateId(newVal,oldVal){
+      this.isVisibleNavFar = newVal
     }
   },
   methods: {
@@ -125,7 +135,14 @@ export default {
       }
     },
     closeCollMenu() {
-      this.isVisibleNavFar = !this.isVisibleNavFar
+      let menu_state = this.$store.state.mobile_menu
+      if(menu_state){
+        this.$store.commit('change_menu',false)
+        this.isVisibleNavFar = false
+      }else{
+        this.$store.commit('change_menu',true)
+        this.isVisibleNavFar = true
+      }
     }
   },
   components: {},

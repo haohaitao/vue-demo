@@ -35,11 +35,10 @@ export default {
           })
       }
   },
-  watch: {
-
-  },
-  components: {
-  },
+  mounted(){
+    //移动端——关闭菜单
+    this.$store.commit('change_menu',false)
+  }
 };
 </script>
 

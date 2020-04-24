@@ -5,6 +5,7 @@ Vue.use(Vuex)
 const state = {
     cateId:null, //默认值为null
     articleId:null,
+    mobile_menu:false,
 }
 
 //mutations是执行方法，点击分类存储分类id
@@ -14,7 +15,11 @@ const mutations={
     },
     article(state,n){
         state.articleId=n;
+    },
+    change_menu(state,n){
+        state.mobile_menu=n;
     }
+
 }
 export default new Vuex.Store({
     state,

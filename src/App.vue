@@ -225,7 +225,7 @@ button {
     text-align: center;
   }
   .wrapper .tag_title{
-    font-size: 24px;
+    font-size: 24px !important;
   }
   .head-page .nav-coll-menu{
     display: block !important;
