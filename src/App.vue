@@ -178,6 +178,10 @@ button {
     margin-left: 20px !important;
     margin-right: 20px !important;
   }
+  #blog img {
+    max-width: 100%;
+    height: 50%;
+  }
 }
 
 @media screen and (max-width: 647px) {
