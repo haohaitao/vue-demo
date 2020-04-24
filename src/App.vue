@@ -182,6 +182,14 @@ button {
     max-width: 100%;
     height: 50%;
   }
+  .detail-article .drawerTitle{
+    font-size: 15px;
+    font-weight: 700;
+  }
+  /* 移动端更多文章样式 */
+  .detail-article .contentList{
+    padding: 0 5px 15px 8px;
+  }
 }
 
 @media screen and (max-width: 647px) {
