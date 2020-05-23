@@ -27,11 +27,11 @@ export default {
 <style lang='scss' scoped>
 section {
   animation: fadeIn 0.6s linear;
-  padding: 170px 0;
+  padding: 170px 10px;
   margin: 0 auto;
   text-align: center;
   overflow: hidden;
-  width:1000px;
+  max-width:1000px;
   @keyframes crazyrighteye {
     0% {
       left: 231px;
