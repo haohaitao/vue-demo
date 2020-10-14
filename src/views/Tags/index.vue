@@ -55,7 +55,7 @@ export default {
   methods:{
     //跳转文章详情页
     jump(val){
-      this.$router.push({path:'/article',query:{id:val.id}})
+      this.$router.push({ name: 'blog', params: { id: val.id } })
     }
   },
   mounted(){
@@ -79,7 +79,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .wrapper{
-  padding-top:100px;
+  margin-top:100px;
   height: 150px;
   background: url(../../assets/imgs/category.jpg) no-repeat;
   background-size: cover;
