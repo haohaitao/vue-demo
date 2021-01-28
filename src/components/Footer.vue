@@ -3,20 +3,19 @@
     <div class="container">
       <!-- 需要用到的竖线使用全角竖线｜ -->
       <span class="footer-flot">
-        <a
-          href="http://www.beian.miit.gov.cn/"
-          target="_blank"
-        >豫ICP备17023037号-1</a>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank"
+          >豫ICP备17023037号-1</a
+        >
       </span>
       <span class="footer-flot">｜</span>
       <p class="link-git">
         <span class="name">
-          Copyright © 2019-2020&nbsp;
+          Copyright © 2019-2021&nbsp;
           <a target="_blank" href="#">版权所有</a>&nbsp;
         </span>
         <span class="github">
           <a target="_blank" href="https://github.com/haohaitao">
-            <i type="logo-github"/>
+            <i type="logo-github" />
           </a>
         </span>
         <span class="github">
@@ -26,9 +25,9 @@
         </span>
       </p>
       <!-- pc端显示 -->
-<el-backtop :right="260" :bottom="150" class="desktop_goback">
-    <div
-      style="{
+      <el-backtop :right="260" :bottom="150" class="desktop_goback">
+        <div
+          style="{
         height: 100%;
         width: 100%;
         background-color: #f2f5f6;
@@ -37,16 +36,16 @@
         line-height: 40px;
         color: #1989fa;
       }"
-    >
-      ▲
-    </div>
-  </el-backtop>
-  <!-- 移动端显示 -->
-  <el-backtop :bottom="88" class="Mobile_goback">
-    <div>
-      返回顶部
-    </div>
-  </el-backtop>
+        >
+          ▲
+        </div>
+      </el-backtop>
+      <!-- 移动端显示 -->
+      <el-backtop :bottom="88" class="Mobile_goback">
+        <div>
+          返回顶部
+        </div>
+      </el-backtop>
     </div>
   </footer>
 </template>
@@ -54,18 +53,22 @@
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
-  mounted(){
-    if(window.console&&window.console.log){  
-      console.log("%cHello world! %c Copyright © 2020"," text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);font-size:2em","font-size:12px;color:#999999;")
-    } 
+  mounted() {
+    if (window.console && window.console.log) {
+      console.log(
+        "%cHello world! %c Copyright © 2021",
+        " text-shadow: 0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9,0 5px 0 #aaa,0 6px 1px rgba(0,0,0,.1),0 0 5px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.3),0 3px 5px rgba(0,0,0,.2),0 5px 10px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.2),0 20px 20px rgba(0,0,0,.15);font-size:2em",
+        "font-size:12px;color:#999999;"
+      );
+    }
   },
   components: {}
-}
+};
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 footer {
   padding-top: 50px;
   height: 120px;
