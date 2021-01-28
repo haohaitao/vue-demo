@@ -2,8 +2,10 @@
   <header class="head-page">
     <div class="container">
       <div class="home-left">
-        <i class="el-icon-cherry" />
-        <router-link to="/">Hao</router-link>
+        <div class="page-name">
+          <i class="el-icon-cherry" />
+          <router-link to="/">Hao</router-link>
+        </div>
       </div>
 
       <!-- 移动端菜单 -->
@@ -168,8 +170,10 @@ header {
       line-height: 70px;
       font-size: 24px;
       float: left;
-      display: flex;
-      align-items: center;
+      .page-name {
+        display: inline-flex;
+        align-items: center;
+      }
       a {
         font-size: 20px;
         position: relative;
