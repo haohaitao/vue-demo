@@ -2,11 +2,11 @@
  * @Description  : 关于页面
  * @Author       : pacino
  * @Date         : 2021-04-08 16:50:23
- * @LastEditTime : 2021-04-08 17:33:59
+ * @LastEditTime : 2021-04-13 13:28:48
  * @LastEditors  : pacino
 -->
 <template>
-    <div>我是About页面</div>
+    <main>我是About页面</main>
 </template>
 
 <script>
@@ -15,4 +15,9 @@
     };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    main {
+        min-width: 1080px;
+        margin: 90px auto 0;
+    }
+</style>
