@@ -2,14 +2,14 @@
  * @Description  : 请求方法
  * @Author       : pacino
  * @Date         : 2021-04-13 10:36:54
- * @LastEditTime : 2021-04-13 13:52:13
+ * @LastEditTime : 2021-04-23 14:42:26
  * @LastEditors  : pacino
  */
 import axios from 'axios';
 
 const pro = true; //是否为生产环境
 
-const proUrl = 'https://www.haoht123.com';
+const proUrl = 'https://www.haoht1223.com';
 const testUrl = '';
 const apiURL = pro ? proUrl : testUrl;
 const http = axios.create({
