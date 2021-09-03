@@ -73,6 +73,10 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+## Tips
+- 当前 ```vue3.0``` 为待开发分支
+- ```master分支``` 的vue版本是2.x，目前已开发完毕，可以切换到master分支进行预览
+
 # License
 
 [MIT](https://github.com/haohaitao/vue-blog/blob/master/LICENSE)
