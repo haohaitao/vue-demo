@@ -3,12 +3,17 @@
     <my-header></my-header>
     <router-view></router-view>
     <my-footer></my-footer>
+    <suspended-Ball title="联系客服"></suspended-Ball>
   </div>
 </template>
 
 <script>
+import SuspendedBall from "@/components/SuspendedBall/index";
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    SuspendedBall,
+  },
 };
 </script>
 
@@ -120,40 +125,43 @@ button {
   background: rgba(255, 0, 0, 0.4);
 }
 /* 移动端滚动顶部样式 */
-.Mobile_goback{
-    right: 40% !important;
-    position: absolute !important;
-    border-radius: 0 !important;
-    background: none !important;
-    width: 100px !important;
-    font-size: 13px !important;
-    box-shadow: none !important;
-    color: black !important;
+.Mobile_goback {
+  right: 40% !important;
+  position: absolute !important;
+  border-radius: 0 !important;
+  background: none !important;
+  width: 100px !important;
+  font-size: 13px !important;
+  box-shadow: none !important;
+  color: black !important;
 }
 
 @media screen and (max-width: 1000px) {
   /* 滚动顶部距离 */
-  footer .desktop_goback{
+  footer .desktop_goback {
     display: none;
   }
-  footer .Mobile_goback{
+  footer .Mobile_goback {
     display: block;
   }
   .chat_side {
-    width:90% !important;
-    margin-right:0 !important;
+    width: 90% !important;
+    margin-right: 0 !important;
   }
   .chat_content {
-    width:90% !important;
+    width: 90% !important;
+  }
+  .circle-wrapper {
+    display: none !important;
   }
 }
 
 @media screen and (min-width: 1000px) {
   /* 滚动顶部距离 */
-  footer .desktop_goback{
+  footer .desktop_goback {
     display: block;
   }
-  footer .Mobile_goback{
+  footer .Mobile_goback {
     display: none;
   }
 }
@@ -182,12 +190,12 @@ button {
     max-width: 100%;
     height: 50%;
   }
-  .detail-article .drawerTitle{
+  .detail-article .drawerTitle {
     font-size: 15px;
     font-weight: 700;
   }
   /* 移动端更多文章样式 */
-  .detail-article .contentList{
+  .detail-article .contentList {
     padding: 0 5px 15px 8px;
   }
 }
@@ -224,10 +232,10 @@ button {
     float: none !important;
     text-align: center;
   }
-  .wrapper .tag_title{
+  .wrapper .tag_title {
     font-size: 24px !important;
   }
-  .head-page .nav-coll-menu{
+  .head-page .nav-coll-menu {
     display: block !important;
   }
   .head-page .nav {
@@ -237,7 +245,7 @@ button {
     margin-left: 6px;
   }
   .head-page .nav .nav-far {
-    visibility: hidden !important;;
+    visibility: hidden !important;
   }
 }
 
@@ -263,6 +271,20 @@ button {
   }
 }
 
+@media screen and (max-width: 420px) {
+  /* 显示悬浮球 */
+  .circle-wrapper {
+    display: block !important;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  /* 显示悬浮球 */
+  .circle-wrapper {
+    display: none !important;
+  }
+}
+
 @media screen and (max-width: 370px) {
   /* 底部响应式 */
   footer .container .link-git {
@@ -283,7 +305,7 @@ button {
 }
 
 /* 分页根据设备宽度换行 */
-.el-pagination{
-  white-space:normal !important;
+.el-pagination {
+  white-space: normal !important;
 }
 </style>
