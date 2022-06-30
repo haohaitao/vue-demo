@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 1556458 */
+  src: url('iconfont.woff2?t=1631177268256') format('woff2'),
+       url('iconfont.woff?t=1631177268256') format('woff'),
+       url('iconfont.ttf?t=1631177268256') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-TALKONPHONE:before {
+  content: "\e7ed";
+}
+
+.icon-CUSTOMERSERVICE:before {
+  content: "\e80a";
+}
+
+.icon-date:before {
+  content: "\e662";
+}
+
+.icon-github:before {
+  content: "\e732";
+}
+
+.icon-countdown:before {
+  content: "\e608";
+}
+
+.icon-comment:before {
+  content: "\e607";
+}
+
+.icon-attention:before {
+  content: "\e637";
+}
+
