@@ -46,9 +46,9 @@
                 <div
                   class="item-icon"
                   :style="{
-                    backgroundPosition: `0 ${
-                      -Math.floor(Math.random() * 4 + 1) * 70
-                    }px`,
+                    backgroundPosition: `0 ${-Math.floor(
+                      Math.random() * 4 + 1
+                    ) * 70}px`,
                   }"
                 ></div>
               </el-tooltip>
@@ -111,6 +111,7 @@ export default {
         } else if (id === "221") {
           this.title_content = "PHP";
         }
+        this.blogShowList = [];
         this.blogShowList = res.data;
         this.total = parseInt(res.headers["x-wp-total"]);
         this.loading = false;
@@ -179,7 +180,7 @@ section {
   max-width: 960px;
   margin: 0 auto;
   box-sizing: border-box;
-
+  min-height: 600px;
   article {
     width: 280px;
     height: 340px;

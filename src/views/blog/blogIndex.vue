@@ -1,5 +1,9 @@
 <template>
-  <article class="detail-article" v-loading="loading">
+  <article
+    class="detail-article"
+    v-loading="loading"
+    v-loading.fullscreen.lock="true"
+  >
     <div class="art-header">
       <h1>{{ blog.title }}</h1>
       <div class="header-info">
@@ -36,8 +40,8 @@
       <p>
         最后编辑时间：{{
           (blog.modified ? blog.modified.split("T")["0"] : "1970-01-01") +
-          " " +
-          (blog.modified ? blog.modified.split("T")["1"] : "00:00:00")
+            " " +
+            (blog.modified ? blog.modified.split("T")["1"] : "00:00:00")
         }}
       </p>
       <div id="vcomments"></div>
@@ -120,10 +124,7 @@ export default {
       let top = document.documentElement.scrollTop || document.body.scrollTop;
       // 实现滚动效果
       const timeTop = setInterval(() => {
-        document.body.scrollTop =
-          document.documentElement.scrollTop =
-          top -=
-            100;
+        document.body.scrollTop = document.documentElement.scrollTop = top -= 100;
         if (top <= 0) {
           clearInterval(timeTop);
         }
@@ -153,7 +154,7 @@ export default {
           this.blog = res.data;
           this.loading = false;
           this.drawerState = false;
-          if (res.data.related_posts.length > 0) {
+          if (res.data.related_posts?.length > 0) {
             this.related_posts = res.data.related_posts;
           } else {
             this.related_posts = [
@@ -203,6 +204,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.detail-article {
+  min-height: 600px;
+}
 article {
   animation: fadeIn 0.6s linear;
   max-width: 700px;

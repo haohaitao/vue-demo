@@ -54,6 +54,7 @@ export default {
   .content {
     text-align: left;
     line-height: 30px;
+    min-height: 600px;
     >>> p:nth-child(1) {
       text-align: center;
     }
