@@ -1,10 +1,3 @@
-<!--
- * @Description: 
- * @Author: pacino
- * @Date: 2022-06-29 17:05:38
- * @LastEditTime: 2022-06-30 13:44:53
- * @LastEditors: pacino
--->
 <template>
   <div class="animated bounce">
     <content-list></content-list>
