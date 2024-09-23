@@ -1,10 +1,3 @@
-<!--
- * @Description: 
- * @Author: pacino
- * @Date: 2022-06-29 17:05:38
- * @LastEditTime: 2022-06-30 14:15:09
- * @LastEditors: pacino
--->
 <template>
   <div class="wrapper animated bounceInDown">
     <div v-html="content" class="content" v-loading="loading"></div>
