@@ -60,6 +60,19 @@ a:hover {
   content: "#";
   color: #f72d84;
 }
+#blog {
+  P {
+    text-indent: 2rem;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  h2 {
+    font-size: 17px;
+  }
+}
 button {
   cursor: url("./assets/pic/cursor.cur"), pointer !important;
 }

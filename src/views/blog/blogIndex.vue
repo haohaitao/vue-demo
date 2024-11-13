@@ -40,8 +40,8 @@
       <p>
         最后编辑时间：{{
           (blog.modified ? blog.modified.split("T")["0"] : "1970-01-01") +
-            " " +
-            (blog.modified ? blog.modified.split("T")["1"] : "00:00:00")
+          " " +
+          (blog.modified ? blog.modified.split("T")["1"] : "00:00:00")
         }}
       </p>
       <div id="vcomments"></div>
@@ -124,7 +124,10 @@ export default {
       let top = document.documentElement.scrollTop || document.body.scrollTop;
       // 实现滚动效果
       const timeTop = setInterval(() => {
-        document.body.scrollTop = document.documentElement.scrollTop = top -= 100;
+        document.body.scrollTop =
+          document.documentElement.scrollTop =
+          top -=
+            100;
         if (top <= 0) {
           clearInterval(timeTop);
         }
